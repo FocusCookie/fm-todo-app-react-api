@@ -1,43 +1,74 @@
+@import url("../components.css");
+
+.task * {
+  font-family: var(--font-family);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--clr-very-dark-grayish-blue);
+  transition: all 300ms ease;
+}
+
+.task {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
 .checkbox {
-  display: inline-block;
-  height: 3rem;
-  position: relative;
-  vertical-align: middle;
-  width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 1.5rem;
+  background: var(--clr-very-light-grayish-blue);
 }
-.checkbox input[type="checkbox"] {
-  font-size: 1em;
-  visibility: hidden;
+.checkbox-bg {
+  background: linear-gradient(
+    to bottom,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
 }
-.checkbox input[type="checkbox"] + span:before {
-  position: absolute;
-  top: 50%;
-  right: auto;
-  bottom: auto;
-  left: 50%;
-  width: 0.85em;
-  height: 0.85em;
-  transform: translate3d(-50%, -50%, 0);
-  background: transparent;
-  box-shadow: #2cc5d2 0 0 0 1px inset;
-  content: "";
-  display: block;
+.check--checked {
+  width: 0.7rem;
+  height: 0.575rem;
 }
-.checkbox input[type="checkbox"]:checked + span:before {
-  font-size: 16px;
-  height: 24px;
-  width: 24px;
-  box-shadow: none;
-  color: #2cc5d2;
-  margin-top: -1px;
-  font-family: "percolate";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  content: "\e65e";
+.check--unchecked {
+  width: calc(1.5rem - 2px);
+  height: calc(1.5rem - 2px);
+  background: white;
+  border-radius: calc(1.5rem - 2px);
+}
+
+.description {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  caret-color: var(--clr-primary);
+}
+.description:focus {
+  color: var(--clr-primary);
+}
+.text--checked {
+  color: var(--clr-light-grayish-blue);
+  text-decoration: line-through;
+}
+
+.delete {
+  background: none;
+  border: none;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-icon {
+  height: 1rem;
+  width: 1rem;
+  fill: red;
 }

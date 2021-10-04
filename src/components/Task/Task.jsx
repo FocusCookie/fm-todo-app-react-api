@@ -2,6 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./task.css";
 import crossIcon from "../../images/icon-cross.svg";
+import checkIcon from "../../images/icon-check.svg";
+
+//TODO: Refactor this component into  a component class with state so to change the input on change, This is right now a functional component
+// https://reactjs.org/docs/forms.html
 
 export const Task = ({
   task: { id, completed, description },
@@ -9,36 +13,44 @@ export const Task = ({
   onDeleteTask,
   ...props
 }) => {
+  let checked;
+  if (completed) {
+    checked = (
+      <img
+        tabIndex="1"
+        src={checkIcon}
+        className="check--checked"
+        alt="Check a task as complete."
+      />
+    );
+  } else {
+    checked = <div tabIndex="1" className="check--unchecked"></div>;
+  }
+
   return (
     <div class="task" {...props}>
-      <label className="checkbox">
-        <input
-          type="checkbox"
-          defaultChecked={completed}
-          disabled={true}
-          id="status"
-          name="status"
-        />
-        <span className="checkbox-custom" onClick={() => onCompleteTask(id)} />
-      </label>
+      <div
+        className={`checkbox ${completed ? "checkbox-bg" : ""}`}
+        onClick={(event) => onCompleteTask(id)}
+      >
+        {checked}
+      </div>
+
       <input
         type="text"
         id="description"
+        className={`description ${completed ? "text--checked" : ""}`}
         name="description"
-        value={description}
-      ></input>
-      <div className="task-delete" onClick={(event) => event.stopPropagation()}>
+        defaultValue={description}
+      />
+      <div onClick={(event) => event.stopPropagation()}>
         <button
-          className="task-delete-btn"
+          className="delete"
           onClick={() => {
             onDeleteTask(id);
           }}
         >
-          <img
-            src={crossIcon}
-            className="task-delete-btn--icon"
-            alt="Delete task."
-          />
+          <img src={crossIcon} className="delete-icon" alt="Delete task." />
         </button>
       </div>
     </div>

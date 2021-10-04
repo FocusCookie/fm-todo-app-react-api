@@ -1,10 +1,14 @@
 :root {
   --clr-primary: hsl(220, 98%, 61%);
-  --gradient: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --gradient: linear-gradient(hsl(192, 100%, 67%) to hsl(280, 87%, 65%));
 
   --clr-very-light-gray: hsl(0, 0%, 98%);
   --clr-very-light-grayish-blue: hsl(236, 33%, 92%);
   --clr-light-grayish-blue: hsl(233, 11%, 84%);
   --clr-dark-grayish-blue: hsl(236, 9%, 61%);
   --clr-very-dark-grayish-blue: hsl(235, 19%, 35%);
+
+  --disabled: #959495;
+
+  --font-family: Josefin Sans, Verdana, Geneva, Tahoma, sans-serif;
 }
