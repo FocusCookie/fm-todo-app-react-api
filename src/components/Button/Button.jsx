@@ -5,6 +5,7 @@ import "./button.css";
 export const Button = ({ active, size, label, ...props }) => {
   return (
     <button
+      {...props}
       type="button"
       className={[`${active ? "btn-active" : "btn"}`, `btn--${size}`].join(" ")}
     >
