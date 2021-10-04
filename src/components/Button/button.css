@@ -1,19 +1,28 @@
+@import url("../components.css");
+
 .btn {
-  color: greenyellow;
+  color: var(--clr-dark-grayish-blue);
+  background: none;
+  border: none;
 }
 
-.btn-active {
-  color: red;
-  font-weight: bold;
+.btn:hover {
+  color: var(--clr-very-dark-grayish-blue);
 }
 
-.btn-secondary {
-  border: 1px solid red;
+.btn--active {
+  font-weight: 900;
+  color: var(--clr-primary);
+}
+.btn--active:hover {
+  color: var(--clr-primary);
 }
 
-.btn--normal {
-  padding: 0.5rem 1rem;
-}
 .btn--small {
-  padding: 0.25rem 0.5em;
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+.btn--normal {
+  font-weight: 700;
+  font-size: 0.875rem;
 }

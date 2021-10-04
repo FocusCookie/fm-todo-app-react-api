@@ -6,7 +6,10 @@ export const Button = ({ active, size, label, ...props }) => {
   return (
     <button
       type="button"
-      className={[`${active ? "btn-active" : "btn"}`, `btn--${size}`].join(" ")}
+      className={["btn", `${active ? "btn--active" : ""}`, `btn--${size}`].join(
+        " "
+      )}
+      {...props}
     >
       {label}
     </button>
