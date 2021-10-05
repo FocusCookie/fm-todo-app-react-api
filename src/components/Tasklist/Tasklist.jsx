@@ -36,7 +36,12 @@ class TaskList extends React.Component {
       } else {
         if (tasks) {
           return tasks.map((task) => (
-            <Task key={`task-${task._id}`} task={task} {...events} />
+            <Task
+              className="task"
+              key={`task-${task._id}`}
+              task={task}
+              {...events}
+            />
           ));
         } else {
           return "No Tasks to display :(";

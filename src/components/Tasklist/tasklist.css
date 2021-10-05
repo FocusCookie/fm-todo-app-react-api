@@ -2,7 +2,6 @@
 
 .tasklist {
   border-radius: 0.3125rem;
-  border: 1px solid gray;
   display: flex;
   flex-direction: column;
 }
@@ -32,4 +31,9 @@
   50% {
     opacity: 0.5;
   }
+}
+
+.task {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--clr-very-light-grayish-blue);
 }
