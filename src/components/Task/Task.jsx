@@ -4,11 +4,6 @@ import "./task.css";
 import crossIcon from "../../images/icon-cross.svg";
 import checkIcon from "../../images/icon-check.svg";
 
-//TODO: Refactor this component into  a component class with state so to change the input on change, This is right now a functional component
-// https://reactjs.org/docs/forms.html
-/* //TODO: Checken ob die props sich aktuallisieren sprich ob sie neu gerendert werden bei einer änderung
-dies geschieht mit dem nested object in storybook nämlich nicht */
-
 class Task extends React.Component {
   constructor(props) {
     super(props);
@@ -22,12 +17,13 @@ class Task extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    const value = event.target.value;
+    this.setState({ value: value });
   }
 
   render() {
     const renderTask = () => {
-      const { task, onCompleteTask, onDeleteTask } = this.props;
+      const { task, onCompleteTask, onDeleteTask, onSaveTask } = this.props;
 
       let checked;
       if (task.completed) {
@@ -42,6 +38,15 @@ class Task extends React.Component {
       } else {
         checked = <div tabIndex="1" className="check--unchecked"></div>;
       }
+
+      const saveBtn = (
+        <button
+          className="save-btn"
+          onClick={() => onSaveTask(this.state.value)}
+        >
+          save
+        </button>
+      );
 
       return (
         <div className="task">
@@ -60,6 +65,9 @@ class Task extends React.Component {
             value={this.state.value}
             onChange={this.handleChange}
           />
+
+          {task.description !== this.state.value ? saveBtn : null}
+
           <div onClick={(event) => event.stopPropagation()}>
             <button
               className="delete"
@@ -101,14 +109,14 @@ Task.propTypes = {
   onDeleteTask: PropTypes.func,
 
   /**  Handler when the input is changed */
-  onChangeDescription: PropTypes.func,
+  onSaveTask: PropTypes.func,
 };
 
 Task.defaultProps = {
   onClick: undefined,
   onCompleteTask: undefined,
   onDeleteTask: undefined,
-  onChangeDescription: undefined,
+  onSaveTask: undefined,
 };
 
 export { Task };

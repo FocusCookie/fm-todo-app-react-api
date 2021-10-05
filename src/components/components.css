@@ -1,6 +1,10 @@
 :root {
   --clr-primary: hsl(220, 98%, 61%);
-  --gradient: linear-gradient(hsl(192, 100%, 67%) to hsl(280, 87%, 65%));
+  --gradient: linear-gradient(
+    to bottom,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
 
   --clr-very-light-gray: hsl(0, 0%, 98%);
   --clr-very-light-grayish-blue: hsl(236, 33%, 92%);

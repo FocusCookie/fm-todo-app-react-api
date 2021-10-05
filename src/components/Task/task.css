@@ -25,11 +25,7 @@
   background: var(--clr-very-light-grayish-blue);
 }
 .checkbox-bg {
-  background: linear-gradient(
-    to bottom,
-    hsl(192, 100%, 67%),
-    hsl(280, 87%, 65%)
-  );
+  background: var(--gradient);
 }
 .check--checked {
   width: 0.7rem;
@@ -71,4 +67,22 @@
   height: 1rem;
   width: 1rem;
   fill: red;
+}
+
+.save-btn {
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--clr-primary);
+  font-weight: 900;
+  border: 1px solid var(--clr-primary);
+  background: none;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+}
+
+.save-btn:hover {
+  color: white;
+  background: var(--clr-primary);
 }
