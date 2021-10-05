@@ -15,3 +15,21 @@ Active.args = {
   active: true,
   label: "Button",
 };
+
+export const Inactive = Template.bind({});
+Inactive.args = {
+  active: false,
+  label: "Button",
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  size: "small",
+  label: "Button",
+};
+
+export const Normal = Template.bind({});
+Normal.args = {
+  size: "normal",
+  label: "Button",
+};

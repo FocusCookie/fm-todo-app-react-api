@@ -7,7 +7,7 @@
 }
 
 .btn:hover {
-  color: var(--clr-very-dark-grayish-blue);
+  color: var(--clr-primary);
 }
 
 .btn--active {
