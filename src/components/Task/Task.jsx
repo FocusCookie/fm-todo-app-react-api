@@ -42,7 +42,7 @@ class Task extends React.Component {
       const saveBtn = (
         <button
           className="save-btn"
-          onClick={() => onSaveTask(this.state.value)}
+          onClick={() => onSaveTask(task._id, this.state.value)}
         >
           save
         </button>
@@ -52,7 +52,7 @@ class Task extends React.Component {
         <div className="task">
           <div
             className={`checkbox ${task.completed ? "checkbox-bg" : ""}`}
-            onClick={(event) => onCompleteTask(task.id)}
+            onClick={(event) => onCompleteTask(task._id)}
           >
             {checked}
           </div>
@@ -72,7 +72,7 @@ class Task extends React.Component {
             <button
               className="delete"
               onClick={() => {
-                onDeleteTask(task.id);
+                onDeleteTask(task._id);
               }}
             >
               <img src={crossIcon} className="delete-icon" alt="Delete task." />
@@ -90,7 +90,7 @@ Task.propTypes = {
   /** Composition of the task */
   task: PropTypes.shape({
     // Id of the task
-    id: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
 
     // description of the task or the actual task
     description: PropTypes.string.isRequired,
