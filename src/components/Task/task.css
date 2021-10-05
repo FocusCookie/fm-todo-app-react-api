@@ -86,3 +86,10 @@
   color: white;
   background: var(--clr-primary);
 }
+
+/* TODO:make the sizes responsive accordingly to the designs */
+@media only screen and (min-width: 500px) {
+  .task * {
+    font-size: 18px;
+  }
+}

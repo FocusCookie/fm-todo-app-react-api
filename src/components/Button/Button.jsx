@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./button.css";
 
+//TODO: Implement a loading props and function
+
 export const Button = ({ active, size, label, ...props }) => {
   return (
     <button
