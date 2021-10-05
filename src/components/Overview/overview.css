@@ -1,7 +1,10 @@
 @import url("../components.css");
 
-.filter {
+.overview {
   display: flex;
-  justify-content: start;
-  gap: 0.625rem;
+  justify-content: space-between;
+  align-content: center;
+  font-family: var(--font-family);
+  font-size: 0.75rem;
+  color: var(--clr-dark-grayish-blue);
 }

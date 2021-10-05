@@ -10,5 +10,5 @@ export default {
 
 const Template = (args) => <Overview {...args} />;
 
-export const NoFilterSet = Template.bind({});
-NoFilterSet.args = {};
+export const Default = Template.bind({});
+Default.args = {};
