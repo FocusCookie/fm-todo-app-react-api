@@ -12,8 +12,13 @@
   --clr-light-grayish-blue: hsl(233, 11%, 84%);
   --clr-dark-grayish-blue: hsl(236, 9%, 61%);
   --clr-very-dark-grayish-blue: hsl(235, 19%, 35%);
+  --clr-add-task: hsla(235, 14%, 26%, 1);
 
   --disabled: #959495;
 
   --font-family: Josefin Sans, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+* {
+  font-family: var(--font-family);
 }

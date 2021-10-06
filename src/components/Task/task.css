@@ -82,8 +82,9 @@
   font-weight: 700;
   border: 1px solid var(--clr-primary);
   background: none;
-  border-radius: 0.5rem;
+  border-radius: calc(var(--checkbox-mobile) / 2);
   text-transform: uppercase;
+  padding-bottom: 0.1rem;
 }
 
 .save-btn:hover {
@@ -91,7 +92,6 @@
   background: var(--clr-primary);
 }
 
-/* TODO:make the sizes responsive accordingly to the designs */
 @media only screen and (min-width: 500px) {
   .task * {
     font-size: 18px;

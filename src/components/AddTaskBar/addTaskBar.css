@@ -1,0 +1,70 @@
+@import url("../components.css");
+
+:root {
+  --circle-mobile: 1.25rem;
+  --circle-desktop: 1.5rem;
+}
+
+.addbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.circle {
+  border: 1px solid var(--clr-very-light-grayish-blue);
+  border-radius: var(--circle-mobile);
+  height: var(--circle-mobile);
+  width: var(--circle-mobile);
+}
+
+.addbar-task {
+  font-size: 0.75rem;
+  color: var(--clr-add-task);
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  caret-color: var(--clr-primary);
+}
+.addbar-task::placeholder {
+  color: var(--clr-dark-grayish-blue);
+}
+
+.addbar-adtbtn {
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: calc(var(--circle-mobile) / 2);
+  border: 1px solid var(--clr-primary);
+  background: transparent;
+  color: var(--clr-primary);
+  font-weight: 900;
+  height: var(--circle-mobile);
+  padding: 0 0.5rem 0.1rem 0.5rem;
+  text-transform: uppercase;
+}
+.addbar-adtbtn:hover {
+  color: white;
+  border-radius: calc(var(--circle-mobile) / 2);
+  border: none;
+  background: var(--gradient);
+}
+
+@media only screen and (min-width: 500px) {
+  .addbar-task {
+    font-size: 18px;
+  }
+
+  .circle {
+    height: var(--circle-desktop);
+    width: var(--circle-desktop);
+  }
+
+  .addbar-adtbtn {
+    font-size: 1rem;
+    height: var(--circle-desktop);
+  }
+}
