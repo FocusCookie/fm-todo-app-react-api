@@ -33,3 +33,10 @@ Normal.args = {
   size: "normal",
   label: "Button",
 };
+
+export const Loading = Template.bind({});
+Loading.args = {
+  size: "normal",
+  label: "Button",
+  loading: true,
+};

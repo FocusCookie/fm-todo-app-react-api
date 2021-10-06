@@ -2,16 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./button.css";
 
-//TODO: Implement a loading props and function
-
-export const Button = ({ active, size, label, ...props }) => {
+export const Button = ({ active, size, label, loading, ...props }) => {
   return (
     <button
       {...props}
       type="button"
-      className={["btn", `${active ? "btn--active" : ""}`, `btn--${size}`].join(
-        " "
-      )}
+      disabled={loading}
+      className={[
+        "btn",
+        `${active ? "btn--active" : ""}`,
+        `btn--${size}`,
+        `${loading ? "btn--loading" : ""}`,
+      ].join(" ")}
       {...props}
     >
       {label}
@@ -33,6 +35,10 @@ Button.propTypes = {
    */
   label: PropTypes.string.isRequired,
   /**
+   * Button will be deactivated while loading
+   */
+  loading: PropTypes.bool,
+  /**
    * Optional click handler
    */
   onClick: PropTypes.func,
@@ -40,6 +46,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   active: false,
+  loading: false,
   size: "normal",
   onClick: undefined,
 };

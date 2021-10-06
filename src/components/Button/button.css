@@ -26,3 +26,21 @@
   font-weight: 700;
   font-size: 0.875rem;
 }
+
+.btn--loading {
+  animation: loading 1s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    color: var(--clr-dark-grayish-blue);
+  }
+
+  50% {
+    color: var(--clr-accent);
+  }
+
+  100% {
+    color: var(--clr-dark-grayish-blue);
+  }
+}
