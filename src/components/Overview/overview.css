@@ -3,7 +3,7 @@
 .overview {
   display: flex;
   justify-content: space-between;
-  align-content: center;
+  align-items: center;
   font-family: var(--font-family);
   font-size: 0.75rem;
   color: var(--clr-dark-grayish-blue);

@@ -1,28 +1,22 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { FilterBar } from "./components/FilterBar/FilterBar";
-
-function print(e) {
-  console.log(e);
-}
+import "./app.css";
+import { AddTaskBar } from "./components/AddTaskBar/AddTaskBar";
+import { Tasklist } from "./components/Tasklist/Tasklist";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-picture">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1 className="text--title">TODO</h1>
+        <button className="themeBtn">x</button>
       </header>
+
+      <section className="card addTaskBar">
+        <AddTaskBar onAddTask={(e) => console.log(e)} />
+      </section>
+
+      <section className="card">
+        <Tasklist />
+      </section>
     </div>
   );
 }
