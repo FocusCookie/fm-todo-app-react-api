@@ -1,5 +1,10 @@
 @import url("./components/components.css");
 
+.dark-theme {
+  --bg-picture-mobile: "./images/bg-mobile-dark.jpg";
+  --bg-picture-desktop: "./images/bg-desktop-dark.jpg";
+}
+
 .App {
   width: 100%;
   display: flex;
@@ -7,6 +12,7 @@
   justify-content: flex-start;
   align-items: center;
   padding: 3rem 1.5rem;
+  background: var(--clr-white);
 }
 
 .content-wrapper {
@@ -37,15 +43,21 @@ header {
   width: 1.25rem;
 }
 
-.bg-picture {
+.bg-picture-light {
   background-image: url("./images/bg-mobile-light.jpg");
+}
+.bg-picture-dark {
+  background-image: url("./images/bg-mobile-dark.jpg");
+}
+
+.bg-picture {
   background-size: contain;
   background-position: center top;
   background-repeat: no-repeat;
 }
 
 .text--title {
-  color: white;
+  color: #fff;
   font-weight: 900;
   font-size: 1.6875rem;
   letter-spacing: calc(0.5rem);
@@ -53,7 +65,7 @@ header {
 
 .card {
   overflow: hidden;
-  background: white;
+  background: var(--clr-white);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
 }
@@ -79,8 +91,17 @@ header {
   .content-wrapper {
     max-width: 540px;
   }
-  .bg-picture {
+  .bg-picture-light {
     background-image: url("./images/bg-desktop-light.jpg");
+  }
+  .bg-picture-dark {
+    background-image: url("./images/bg-desktop-dark.jpg");
+  }
+  .bg-picture {
     background-size: auto;
+  }
+
+  .app-filterbar {
+    display: none;
   }
 }

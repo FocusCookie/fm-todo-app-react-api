@@ -1,10 +1,11 @@
-import "./app.css";
+import "./App.css";
 import { AddTaskBar } from "./components/AddTaskBar/AddTaskBar";
 import { Tasklist } from "./components/Tasklist/Tasklist";
 import { Overview } from "./components/Overview/Overview";
 import { FilterBar } from "./components/FilterBar/FilterBar";
 import moonIconPath from "./images/icon-moon.svg";
 import sunIconPath from "./images/icon-sun.svg";
+import { useState } from "react";
 
 const devTasks = [
   {
@@ -46,13 +47,32 @@ const devTasks = [
 ];
 
 function App() {
+  const [state, setValue] = useState({ darkMode: false });
+
   return (
-    <div className="App bg-picture">
+    <div
+      className={`App bg-picture ${
+        state.darkMode ? "bg-picture-dark" : "bg-picture-light"
+      } ${state.darkMode ? "dark-theme" : ""}`}
+    >
       <div className="content-wrapper">
         <header className="App-header">
           <h1 className="text--title">TODO</h1>
-          <button className="theme-btn">
-            <img className="theme-icon" src={moonIconPath} alt="Moon icon" />
+          <button
+            className="theme-btn"
+            onClick={() => {
+              setValue({ darkMode: !state.darkMode });
+            }}
+          >
+            <img
+              className="theme-icon"
+              src={state.darkMode ? sunIconPath : moonIconPath}
+              alt={
+                state.darkMode
+                  ? "Sun Icon - Dark Mode is enabled"
+                  : "Moon Icon - Light Mode is enabled"
+              }
+            />
           </button>
         </header>
 

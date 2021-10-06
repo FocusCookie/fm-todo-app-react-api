@@ -7,6 +7,8 @@
     hsl(280, 87%, 65%)
   );
 
+  --clr-white: #fff;
+
   --clr-very-light-gray: hsl(0, 0%, 98%);
   --clr-very-light-grayish-blue: hsl(236, 33%, 92%);
   --clr-light-grayish-blue: hsl(233, 11%, 84%);
@@ -26,4 +28,16 @@
 * {
   margin: 0;
   font-family: var(--font-family);
+}
+
+.dark-theme {
+  --clr-white: hsla(235, 24%, 19%, 1);
+  --clr-dark-grayish-blue: hsla(235, 16%, 43%, 1);
+  --clr-very-light-grayish-blue: hsla(237, 14%, 26%, 1);
+  --clr-very-dark-grayish-blue: hsla(234, 39%, 85%, 1);
+  --clr-very-light-gray: hsla(235, 16%, 43%, 1);
+  --clr-add-task: hsla(234, 39%, 85%, 1);
+  --clr-light-grayish-blue: hsla(233, 14%, 35%, 1);
+
+  --shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
 }

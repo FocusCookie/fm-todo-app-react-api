@@ -38,11 +38,12 @@
 .check--unchecked {
   width: calc(var(--checkbox-mobile) - 2px);
   height: calc(var(--checkbox-mobile) - 2px);
-  background: white;
+  background: var(--clr-white);
   border-radius: calc(var(--checkbox-mobile) - 2px);
 }
 
 .description {
+  background: transparent;
   border: none;
   outline: none;
   flex-grow: 1;
@@ -87,7 +88,7 @@
 }
 
 .save-btn:hover {
-  color: white;
+  color: #fff;
   background: var(--clr-primary);
 }
 
