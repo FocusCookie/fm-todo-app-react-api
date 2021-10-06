@@ -1,13 +1,13 @@
 import React from "react";
-import { TaskList } from "./Tasklist";
+import { Tasklist } from "./Tasklist";
 
 export default {
   title: "Components/Tasklist",
-  component: TaskList,
+  component: Tasklist,
   argTypes: {},
 };
 
-const Template = (args) => <TaskList {...args} />;
+const Template = (args) => <Tasklist {...args} />;
 
 const tasks = [
   {

@@ -1,6 +1,6 @@
 @import url("../components.css");
 
-.tasklist {
+.Tasklist {
   border-radius: 0.3125rem;
   display: flex;
   flex-direction: column;

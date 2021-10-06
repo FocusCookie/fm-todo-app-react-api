@@ -4,7 +4,7 @@ import "./tasklist.css";
 
 import { Task } from "../Task/Task";
 
-class TaskList extends React.Component {
+class Tasklist extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -49,11 +49,11 @@ class TaskList extends React.Component {
       }
     };
 
-    return <div className="tasklist">{display(loading)}</div>;
+    return <div className="Tasklist">{display(loading)}</div>;
   }
 }
 
-TaskList.propTypes = {
+Tasklist.propTypes = {
   /** Array of Tasks */
   /**  Handler for clicking the complete checkbox */
   tasks: PropTypes.array,
@@ -68,11 +68,11 @@ TaskList.propTypes = {
   onSaveTask: PropTypes.func,
 };
 
-TaskList.defaultProps = {
+Tasklist.defaultProps = {
   loading: true,
   onCompleteTask: undefined,
   onDeleteTask: undefined,
   onSaveTask: undefined,
 };
 
-export { TaskList };
+export { Tasklist };
