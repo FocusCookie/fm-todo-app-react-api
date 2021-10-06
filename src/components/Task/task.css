@@ -84,7 +84,6 @@
   background: none;
   border-radius: calc(var(--checkbox-mobile) / 2);
   text-transform: uppercase;
-  padding-bottom: 0.1rem;
 }
 
 .save-btn:hover {

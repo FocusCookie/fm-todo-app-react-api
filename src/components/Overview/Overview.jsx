@@ -35,8 +35,11 @@ class Overview extends React.Component {
     return (
       <div {...props} className="overview">
         <span>{`${taskLeft} tasks left`}</span>
-        {this.state.width > 400 ? (
-          <FilterBar onSetFilter={(filter) => onSetFilter(filter)} />
+        {this.state.width > 450 ? (
+          <FilterBar
+            onSetFilter={(filter) => onSetFilter(filter)}
+            activeFilter={activeFilter}
+          />
         ) : null}
         <Button
           label="Clear Completed"

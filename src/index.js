@@ -6,7 +6,7 @@ import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <style jsx global>{`
+    <style jsx="true" global="true">{`
       html {
         height: 100vh;
       }
