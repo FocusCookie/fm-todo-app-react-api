@@ -1,4 +1,8 @@
 @import url("../components.css");
+:root {
+  --checkbox-mobile: 1.25rem;
+  --checkbox-desktop: 1.5rem;
+}
 
 .task * {
   font-family: var(--font-family);
@@ -19,9 +23,9 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 1.5rem;
+  width: var(--checkbox-mobile);
+  height: var(--checkbox-mobile);
+  border-radius: var(--checkbox-mobile);
   background: var(--clr-very-light-grayish-blue);
 }
 .checkbox-bg {
@@ -32,10 +36,10 @@
   height: 0.575rem;
 }
 .check--unchecked {
-  width: calc(1.5rem - 2px);
-  height: calc(1.5rem - 2px);
+  width: calc(var(--checkbox-mobile) - 2px);
+  height: calc(var(--checkbox-mobile) - 2px);
   background: white;
-  border-radius: calc(1.5rem - 2px);
+  border-radius: calc(var(--checkbox-mobile) - 2px);
 }
 
 .description {
@@ -55,9 +59,9 @@
 .delete {
   background: none;
   border: none;
-  height: 1.5rem;
-  width: 1.5rem;
-  border-radius: 1.5rem;
+  height: var(--checkbox-mobile);
+  width: var(--checkbox-mobile);
+  border-radius: var(--checkbox-mobile);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,12 +74,12 @@
 }
 
 .save-btn {
-  height: 1.5rem;
+  height: var(--checkbox-mobile);
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--clr-primary);
-  font-weight: 900;
+  font-weight: 700;
   border: 1px solid var(--clr-primary);
   background: none;
   border-radius: 0.5rem;
@@ -91,5 +95,33 @@
 @media only screen and (min-width: 500px) {
   .task * {
     font-size: 18px;
+  }
+
+  .checkbox {
+    width: var(--checkbox-desktop);
+    height: var(--checkbox-desktop);
+  }
+
+  .check--checked {
+    width: 0.7rem;
+    height: 0.575rem;
+  }
+  .check--unchecked {
+    width: calc(var(--checkbox-desktop) - 2px);
+    height: calc(var(--checkbox-desktop) - 2px);
+    border-radius: calc(var(--checkbox-desktop) - 2px);
+  }
+
+  .delete {
+    height: var(--checkbox-desktop);
+    width: var(--checkbox-desktop);
+  }
+  .delete-icon {
+    height: var(--checkbox-mobile);
+    width: var(--checkbox-mobile);
+  }
+
+  .save-btn {
+    height: var(--checkbox-desktop);
   }
 }
