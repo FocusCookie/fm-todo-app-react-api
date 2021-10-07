@@ -4,34 +4,30 @@ import "./overview.css";
 import { Button } from "../Button/Button";
 import { FilterBar } from "../FilterBar/FilterBar";
 
-class Overview extends React.Component {
-  render() {
-    const {
-      tasksLeft,
-      activeFilter,
-      onSetFilter,
-      onClearCompleted,
-      ...props
-    } = this.props;
-
-    return (
-      <div {...props} className="overview">
-        <span>{`${tasksLeft} tasks left`}</span>
-        <div className="overview-filterbar">
-          <FilterBar
-            onSetFilter={(filter) => onSetFilter(filter)}
-            activeFilter={activeFilter}
-          />
-        </div>
-        <Button
-          label="Clear Completed"
-          size="small"
-          onClick={() => onClearCompleted()}
+export const Overview = ({
+  tasksLeft,
+  activeFilter,
+  onSetFilter,
+  onClearCompleted,
+  ...props
+}) => {
+  return (
+    <div {...props} className="overview">
+      <span>{`${tasksLeft} tasks left`}</span>
+      <div className="overview-filterbar">
+        <FilterBar
+          onSetFilter={(filter) => onSetFilter(filter)}
+          activeFilter={activeFilter}
         />
       </div>
-    );
-  }
-}
+      <Button
+        label="Clear Completed"
+        size="small"
+        onClick={() => onClearCompleted()}
+      />
+    </div>
+  );
+};
 
 Overview.propTypes = {
   /**
@@ -58,5 +54,3 @@ Overview.defaultProps = {
   onClearCompleted: undefined,
   onSetFilter: undefined,
 };
-
-export { Overview };

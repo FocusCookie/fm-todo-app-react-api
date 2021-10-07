@@ -10,5 +10,13 @@ export default {
 
 const Template = (args) => <Overview {...args} />;
 
-export const TaskLeftFilled = Template.bind({});
-TaskLeftFilled.args = { tasksLeft: 5 };
+export const NoTask = Template.bind({});
+
+export const WithTasksLeft = Template.bind({});
+WithTasksLeft.args = { tasksLeft: 5 };
+
+export const NoFilterSet = Template.bind({});
+NoFilterSet.args = { tasksLeft: 5 };
+
+export const FilterSet = Template.bind({});
+FilterSet.args = { tasksLeft: 5, activeFilter: "all" };
