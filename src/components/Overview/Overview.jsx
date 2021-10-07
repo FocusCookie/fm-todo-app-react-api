@@ -5,27 +5,9 @@ import { Button } from "../Button/Button";
 import { FilterBar } from "../FilterBar/FilterBar";
 
 class Overview extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { width: 0 };
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-  }
-  componentDidMount() {
-    this.updateWindowDimensions();
-    window.addEventListener("resize", this.updateWindowDimensions);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth });
-  }
-
   render() {
     const {
-      taskLeft,
+      tasksLeft,
       activeFilter,
       onSetFilter,
       onClearCompleted,
@@ -34,13 +16,13 @@ class Overview extends React.Component {
 
     return (
       <div {...props} className="overview">
-        <span>{`${taskLeft} tasks left`}</span>
-        {this.state.width > 450 ? (
+        <span>{`${tasksLeft} tasks left`}</span>
+        <div className="overview-filterbar">
           <FilterBar
             onSetFilter={(filter) => onSetFilter(filter)}
             activeFilter={activeFilter}
           />
-        ) : null}
+        </div>
         <Button
           label="Clear Completed"
           size="small"
@@ -55,7 +37,7 @@ Overview.propTypes = {
   /**
    * How many task are left uncompleted
    */
-  taskLeft: PropTypes.number,
+  tasksLeft: PropTypes.number,
   /**
    * If clear completed btn is clicked
    */
@@ -71,7 +53,7 @@ Overview.propTypes = {
 };
 
 Overview.defaultProps = {
-  taskLeft: 0,
+  tasksLeft: 0,
   activeFilter: "none",
   onClearCompleted: undefined,
   onSetFilter: undefined,

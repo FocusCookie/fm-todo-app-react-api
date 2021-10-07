@@ -8,3 +8,13 @@
   font-size: 0.75rem;
   color: var(--clr-dark-grayish-blue);
 }
+
+.overview-filterbar {
+  display: none;
+}
+
+@media only screen and (min-width: 450px) {
+  .overview-filterbar {
+    display: block;
+  }
+}

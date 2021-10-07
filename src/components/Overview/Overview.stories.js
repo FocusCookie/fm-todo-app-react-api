@@ -10,5 +10,5 @@ export default {
 
 const Template = (args) => <Overview {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {};
+export const TaskLeftFilled = Template.bind({});
+TaskLeftFilled.args = { tasksLeft: 5 };

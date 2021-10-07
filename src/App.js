@@ -96,7 +96,7 @@ function App() {
           />
           <div className="tasks-overview">
             <Overview
-              taskLeft={5}
+              tasksLeft={5}
               activeFilter={"all"}
               onSetFilter={(filter) => console.log("filter set to ", filter)}
               onClearCompleted={(id) => console.log("clear completed tasks")}
