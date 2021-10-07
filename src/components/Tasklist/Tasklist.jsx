@@ -4,54 +4,43 @@ import "./tasklist.css";
 
 import { Task } from "../Task/Task";
 
-class Tasklist extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+export const Tasklist = ({
+  tasks,
+  loading,
+  onCompleteTask,
+  onDeleteTask,
+  onSaveTask,
+  ...props
+}) => {
+  const events = { onCompleteTask, onDeleteTask, onSaveTask };
 
-  render() {
-    const {
-      tasks,
-      loading,
-      onCompleteTask,
-      onDeleteTask,
-      onSaveTask,
-    } = this.props;
-
-    const events = {
-      onCompleteTask,
-      onDeleteTask,
-      onSaveTask,
-    };
-
-    const display = function (isLoading) {
-      if (isLoading) {
-        return (
-          <div className="loader">
-            <div className="loader-item"></div>
-            <div className="loader-item"></div>
-            <div className="loader-item"></div>
-          </div>
-        );
+  const display = function (isLoading) {
+    if (isLoading) {
+      return (
+        <div className="loader">
+          <div className="loader-item"></div>
+          <div className="loader-item"></div>
+          <div className="loader-item"></div>
+        </div>
+      );
+    } else {
+      if (tasks) {
+        return tasks.map((task) => (
+          <Task
+            className="task"
+            key={`task-${task._id}`}
+            task={task}
+            {...events}
+          />
+        ));
       } else {
-        if (tasks) {
-          return tasks.map((task) => (
-            <Task
-              className="task"
-              key={`task-${task._id}`}
-              task={task}
-              {...events}
-            />
-          ));
-        } else {
-          return "No Tasks to display :(";
-        }
+        return "No Tasks to display :(";
       }
-    };
+    }
+  };
 
-    return <div className="Tasklist">{display(loading)}</div>;
-  }
-}
+  return <div className="Tasklist">{display(loading)}</div>;
+};
 
 Tasklist.propTypes = {
   /** Array of Tasks */
@@ -74,5 +63,3 @@ Tasklist.defaultProps = {
   onDeleteTask: undefined,
   onSaveTask: undefined,
 };
-
-export { Tasklist };
