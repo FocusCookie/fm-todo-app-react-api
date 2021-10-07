@@ -1,90 +1,77 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./task.css";
 import crossIcon from "../../images/icon-cross.svg";
 import checkIcon from "../../images/icon-check.svg";
 
-class Task extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: "" };
+export const Task = ({
+  task,
+  onCompleteTask,
+  onDeleteTask,
+  onSaveTask,
+  ...props
+}) => {
+  const [value, setValue] = useState("");
 
-    this.handleChange = this.handleChange.bind(this);
+  useEffect(() => {
+    setValue(task.description);
+  }, [task.description]);
+
+  let checked;
+  if (task.completed) {
+    checked = (
+      <img
+        tabIndex="1"
+        src={checkIcon}
+        className="check--checked"
+        alt="Check a task as complete."
+      />
+    );
+  } else {
+    checked = <div tabIndex="1" className="check--unchecked"></div>;
   }
 
-  componentDidMount() {
-    this.setState({ value: this.props.task.description });
-  }
+  const saveBtn = (
+    <button className="save-btn" onClick={() => onSaveTask(task._id, value)}>
+      save
+    </button>
+  );
 
-  handleChange(event) {
-    const value = event.target.value;
-    this.setState({ value: value });
-  }
+  return (
+    <div className="task">
+      <div
+        className={`checkbox ${task.completed ? "checkbox-bg" : ""}`}
+        onClick={() => onCompleteTask(task._id)}
+      >
+        {checked}
+      </div>
 
-  render() {
-    const renderTask = () => {
-      const { task, onCompleteTask, onDeleteTask, onSaveTask } = this.props;
+      <input
+        type="text"
+        id="description"
+        className={`description ${task.completed ? "text--checked" : ""}`}
+        name="description"
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+      />
 
-      let checked;
-      if (task.completed) {
-        checked = (
-          <img
-            tabIndex="1"
-            src={checkIcon}
-            className="check--checked"
-            alt="Check a task as complete."
-          />
-        );
-      } else {
-        checked = <div tabIndex="1" className="check--unchecked"></div>;
-      }
+      {task.description !== value ? saveBtn : null}
 
-      const saveBtn = (
+      <div onClick={(event) => event.stopPropagation()}>
         <button
-          className="save-btn"
-          onClick={() => onSaveTask(task._id, this.state.value)}
+          className="delete"
+          onClick={() => {
+            onDeleteTask(task._id);
+          }}
         >
-          save
+          <img src={crossIcon} className="delete-icon" alt="Delete task." />
         </button>
-      );
-
-      return (
-        <div className="task">
-          <div
-            className={`checkbox ${task.completed ? "checkbox-bg" : ""}`}
-            onClick={(event) => onCompleteTask(task._id)}
-          >
-            {checked}
-          </div>
-
-          <input
-            type="text"
-            id="description"
-            className={`description ${task.completed ? "text--checked" : ""}`}
-            name="description"
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
-
-          {task.description !== this.state.value ? saveBtn : null}
-
-          <div onClick={(event) => event.stopPropagation()}>
-            <button
-              className="delete"
-              onClick={() => {
-                onDeleteTask(task._id);
-              }}
-            >
-              <img src={crossIcon} className="delete-icon" alt="Delete task." />
-            </button>
-          </div>
-        </div>
-      );
-    };
-
-    return renderTask();
-  }
-}
+      </div>
+    </div>
+  );
+};
 
 Task.propTypes = {
   /** Composition of the task */
@@ -118,5 +105,3 @@ Task.defaultProps = {
   onDeleteTask: undefined,
   onSaveTask: undefined,
 };
-
-export { Task };
