@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./login.css";
 
+//TODO: Implement login via api, return bearer token
+
 export const Login = ({ onSuccess, onError, ...props }) => {
   return (
     <div id="login" {...props}>
