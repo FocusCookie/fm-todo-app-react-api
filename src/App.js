@@ -5,9 +5,11 @@ import { Overview } from "./components/Overview/Overview";
 import { FilterBar } from "./components/FilterBar/FilterBar";
 import moonIconPath from "./images/icon-moon.svg";
 import sunIconPath from "./images/icon-sun.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const devTasks = [
+import * as api from "./services/api.service";
+
+let devTasks = [
   {
     completed: false,
     _id: "1",
@@ -47,7 +49,19 @@ const devTasks = [
 ];
 
 function App() {
+  //TODO: refactor into [darkMode, setDarkMode]
   const [state, setValue] = useState({ darkMode: false });
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      api.login("test", "1234567").then(() => {
+        api.getTasks().then((res) => setTasks(res.data));
+      });
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div
@@ -82,7 +96,7 @@ function App() {
 
         <section className="card">
           <Tasklist
-            tasks={devTasks}
+            tasks={tasks}
             loading={false}
             onCompleteTask={(e) => {
               console.log("complete ", e);

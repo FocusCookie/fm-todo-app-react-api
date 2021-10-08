@@ -4,6 +4,8 @@ import "./login.css";
 
 //TODO: Implement login via api, return bearer token
 
+//TODO: check username only names without spaces etc
+
 export const Login = ({ onSuccess, onError, ...props }) => {
   return (
     <div id="login" {...props}>
