@@ -128,6 +128,7 @@ const deleteTask = async function (id, completed, description) {
   console.log(user);
 }); */
 
+/* 
 login("test", "1234567").then(async () => {
   console.log("LOGED IN");
 
@@ -148,4 +149,6 @@ login("test", "1234567").then(async () => {
 
   const isLoggedOut = await logout();
   console.log("logged out ---> ", isLoggedOut);
-});
+}); */
+
+export { register, login, logout, getTasks, addTask, updateTask, deleteTask };
