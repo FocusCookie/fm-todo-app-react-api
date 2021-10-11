@@ -1,4 +1,5 @@
-@import url("../components.css");
+@import url("../../styles/components.css");
+
 :root {
   --checkbox-mobile: 1.25rem;
   --checkbox-desktop: 1.5rem;

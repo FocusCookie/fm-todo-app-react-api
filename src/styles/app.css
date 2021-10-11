@@ -1,8 +1,8 @@
-@import url("./components/components.css");
+@import url("./components.css");
 
 .dark-theme {
-  --bg-picture-mobile: "./images/bg-mobile-dark.jpg";
-  --bg-picture-desktop: "./images/bg-desktop-dark.jpg";
+  --bg-picture-mobile: "../images/bg-mobile-dark.jpg";
+  --bg-picture-desktop: "../images/bg-desktop-dark.jpg";
 }
 
 .App {
@@ -44,10 +44,10 @@ header {
 }
 
 .bg-picture-light {
-  background-image: url("./images/bg-mobile-light.jpg");
+  background-image: url("../images/bg-mobile-light.jpg");
 }
 .bg-picture-dark {
-  background-image: url("./images/bg-mobile-dark.jpg");
+  background-image: url("../images/bg-mobile-dark.jpg");
 }
 
 .bg-picture {
@@ -92,10 +92,10 @@ header {
     max-width: 540px;
   }
   .bg-picture-light {
-    background-image: url("./images/bg-desktop-light.jpg");
+    background-image: url("../images/bg-desktop-light.jpg");
   }
   .bg-picture-dark {
-    background-image: url("./images/bg-desktop-dark.jpg");
+    background-image: url("../images/bg-desktop-dark.jpg");
   }
   .bg-picture {
     background-size: auto;

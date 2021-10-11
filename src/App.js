@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/app.css";
 import { AddTaskBar } from "./components/AddTaskBar/AddTaskBar";
 import { Tasklist } from "./components/Tasklist/Tasklist";
 import { Overview } from "./components/Overview/Overview";
