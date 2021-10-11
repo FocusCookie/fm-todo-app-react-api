@@ -41,10 +41,9 @@ const login = async function (username, password) {
     };
 
     const loggedInUser = await api.post("user/login", user);
+    const token = loggedInUser.data.token;
 
-    api.defaults.headers.common[
-      "Authorization"
-    ] = `Bearer ${loggedInUser.data.token}`;
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
     return loggedInUser.data;
   } catch (error) {
