@@ -25,7 +25,7 @@ export const Tasklist = ({
         </div>
       );
     } else {
-      if (tasks) {
+      if (tasks.length > 0) {
         return tasks.map((task) => (
           <Task
             disabled={disabled}
@@ -36,7 +36,7 @@ export const Tasklist = ({
           />
         ));
       } else {
-        return "No Tasks to display :(";
+        return <div className="no-tasks">No Tasks to display 😢</div>;
       }
     }
   };

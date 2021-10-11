@@ -23,6 +23,14 @@
   animation: glow 1.5s ease-in-out infinite;
 }
 
+.no-tasks {
+  color: var(--clr-very-dark-grayish-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
 @keyframes glow {
   0%,
   100% {
