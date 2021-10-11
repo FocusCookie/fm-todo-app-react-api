@@ -87,7 +87,6 @@
   border-radius: calc(var(--checkbox-mobile) / 2);
   text-transform: uppercase;
 }
-
 .save-btn:hover {
   color: #fff;
   background: var(--clr-primary);

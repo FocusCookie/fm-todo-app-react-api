@@ -36,7 +36,14 @@ export const Task = ({
   }
 
   const saveBtn = (
-    <button className="save-btn" onClick={() => onSaveTask(task._id, value)}>
+    <button
+      disabled={disabled}
+      className="save-btn"
+      onClick={() => {
+        setIsUpdating(true);
+        onSaveTask(task._id, value);
+      }}
+    >
       save
     </button>
   );

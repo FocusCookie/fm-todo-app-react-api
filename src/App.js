@@ -11,45 +11,6 @@ import { useEffect, useState } from "react";
 
 import * as api from "./services/api.service";
 
-let devTasks = [
-  {
-    completed: false,
-    _id: "1",
-    description: "reading book",
-    owner: "615a9d50334cdc00174ebe23",
-    createdAt: "2021-10-04T06:23:08.857Z",
-    updatedAt: "2021-10-04T06:23:08.857Z",
-    __v: 0,
-  },
-  {
-    completed: false,
-    _id: "2",
-    description: "buy milk",
-    owner: "615a9d50334cdc00174ebe23",
-    createdAt: "2021-10-04T06:23:08.857Z",
-    updatedAt: "2021-10-04T06:23:08.857Z",
-    __v: 0,
-  },
-  {
-    completed: false,
-    _id: "3",
-    description: "clean house",
-    owner: "615a9d50334cdc00174ebe23",
-    createdAt: "2021-10-04T06:23:08.857Z",
-    updatedAt: "2021-10-04T06:23:08.857Z",
-    __v: 0,
-  },
-  {
-    completed: true,
-    _id: "4",
-    description: "do the tasks",
-    owner: "615a9d50334cdc00174ebe23",
-    createdAt: "2021-10-04T06:23:08.857Z",
-    updatedAt: "2021-10-04T06:23:08.857Z",
-    __v: 0,
-  },
-];
-
 function App() {
   //TODO: refactor into [darkMode, setDarkMode]
   const [state, setValue] = useState({ darkMode: false });
@@ -58,7 +19,8 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [loadTasks, setLoadTasks] = useState(false);
   const [isAddingTask, setIsAddingTask] = useState(false);
-  const [taskFilter, setTaskFilter] = useState(""); //TODO implement filtering by display the filtered array in tasklist and not hte tasks itself
+  const [filter, setFilter] = useState("all");
+  const [displayed, setDisplayed] = useState([]);
   const [ongoingAction, setOngoingAction] = useState(false);
   const [loginError, setLoginError] = useState("");
 
@@ -66,6 +28,7 @@ function App() {
     const fetchData = async () => {
       api.getTasks().then((res) => {
         setTasks(res.data);
+        setDisplayed(res.data);
         setLoadTasks(false);
       });
     };
@@ -136,6 +99,15 @@ function App() {
                   const newTasks = [...tasks, res.data];
                   setTasks(newTasks);
 
+                  let newDisplayed;
+                  if (filter === "all") newDisplayed = newTasks.slice();
+                  if (filter === "active")
+                    newDisplayed = newTasks.filter((t) => !t.completed);
+                  if (filter === "completed")
+                    newDisplayed = newTasks.filter((t) => t.completed);
+
+                  setDisplayed(newDisplayed);
+
                   setIsAddingTask(false);
                 })
                 .catch((err) => {
@@ -148,7 +120,7 @@ function App() {
 
         <section className="card">
           <Tasklist
-            tasks={tasks}
+            tasks={displayed}
             disabled={ongoingAction}
             loading={loadTasks}
             onCompleteTask={(id, updateCompleteState) => {
@@ -163,6 +135,15 @@ function App() {
                   newTasks[indexOfUpdatedTask] = updatedTask;
                   setTasks(newTasks);
 
+                  let newDisplayed;
+                  if (filter === "all") newDisplayed = newTasks.slice();
+                  if (filter === "active")
+                    newDisplayed = newTasks.filter((t) => !t.completed);
+                  if (filter === "completed")
+                    newDisplayed = newTasks.filter((t) => t.completed);
+
+                  setDisplayed(newDisplayed);
+
                   setOngoingAction(false);
                 });
               }
@@ -173,20 +154,67 @@ function App() {
                 api.deleteTask(id).then(() => {
                   const newTasks = tasks.filter((t) => t._id !== id);
                   setTasks(newTasks);
+
+                  let newDisplayed;
+                  if (filter === "all") newDisplayed = newTasks.slice();
+                  if (filter === "active")
+                    newDisplayed = newTasks.filter((t) => !t.completed);
+                  if (filter === "completed")
+                    newDisplayed = newTasks.filter((t) => t.completed);
+
+                  setDisplayed(newDisplayed);
+
                   setOngoingAction(false);
                 });
               }
             }}
             onSaveTask={(id, description) => {
-              console.log("save ", id, description);
+              if (!ongoingAction) {
+                setOngoingAction(true);
+
+                const task = tasks.find((t) => t._id === id);
+
+                //TODO: API anpassen weil bei description muss complete mitgegeben werden
+                api
+                  .updateTask(id, task.completed, description)
+                  .then((updatedTask) => {
+                    const newTasks = tasks.slice();
+                    const indexOfUpdatedTask = newTasks.findIndex(
+                      (t) => t._id === id
+                    );
+                    newTasks[indexOfUpdatedTask] = updatedTask;
+                    setTasks(newTasks);
+
+                    let newDisplayed;
+                    if (filter === "all") newDisplayed = newTasks.slice();
+                    if (filter === "active")
+                      newDisplayed = newTasks.filter((t) => !t.completed);
+                    if (filter === "completed")
+                      newDisplayed = newTasks.filter((t) => t.completed);
+
+                    setDisplayed(newDisplayed);
+
+                    setOngoingAction(false);
+                  });
+              }
             }}
           />
           {loadTasks ? null : (
             <div className="tasks-overview">
               <Overview
-                tasksLeft={5}
-                activeFilter={"all"}
-                onSetFilter={(filter) => console.log("filter set to ", filter)}
+                tasksLeft={displayed.length}
+                activeFilter={filter}
+                onSetFilter={(newFilter) => {
+                  setFilter(newFilter);
+                  let newTasks;
+                  if (newFilter === "all") newTasks = tasks.slice();
+                  if (newFilter === "active")
+                    newTasks = tasks.filter((t) => !t.completed);
+                  if (newFilter === "completed")
+                    newTasks = tasks.filter((t) => t.completed);
+
+                  setDisplayed(newTasks);
+                }}
                 onClearCompleted={(id) => console.log("clear completed tasks")}
               />{" "}
             </div>
@@ -196,8 +224,18 @@ function App() {
         {loadTasks ? null : (
           <section className="app-filterbar card">
             <FilterBar
-              activeFilter={"all"}
-              onSetFilter={(filter) => console.log("filter set to ", filter)}
+              activeFilter={filter}
+              onSetFilter={(newFilter) => {
+                setFilter(newFilter);
+                let newTasks;
+                if (newFilter === "all") newTasks = tasks.slice();
+                if (newFilter === "active")
+                  newTasks = tasks.filter((t) => !t.completed);
+                if (newFilter === "completed")
+                  newTasks = tasks.filter((t) => t.completed);
+
+                setDisplayed(newTasks);
+              }}
             />
           </section>
         )}
