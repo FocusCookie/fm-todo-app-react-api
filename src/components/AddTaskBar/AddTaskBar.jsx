@@ -1,68 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./addTaskBar.css";
 
-class AddTaskBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { task: "" };
+export const AddTaskBar = ({ loading, onAddTask, ...props }) => {
+  const [description, setDescription] = useState("");
 
-    this.handleChange = this.handleChange.bind(this);
-  }
+  const displaySaveBtn =
+    description !== "" ? (
+      <button className="addbar-adtbtn" onClick={() => onAddTask(description)}>
+        add
+      </button>
+    ) : null;
 
-  handleChange(event) {
-    const task = event.target.value;
-    this.setState({ task: task });
-  }
+  return (
+    <div className="addbar" {...props}>
+      <div className="circle"></div>
 
-  handleKeyDown = (e) => {
-    if (e.key === "Enter" && this.state.task !== "") {
-      this.props.onAddTask(this.state.task);
-      this.setState({ task: "" });
-    }
-  };
+      <input
+        type="text"
+        id="addTask"
+        className="addbar-task"
+        placeholder="Create a new todo.."
+        name="task"
+        value={description}
+        onChange={(e) => {
+          const enteredDescription = e.target.value;
+          setDescription(enteredDescription);
+        }}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && description !== "") {
+            onAddTask(description);
+          }
+        }}
+      />
 
-  render() {
-    const { onAddTask } = this.props;
-
-    const displaySaveBtn =
-      this.state.task !== "" ? (
-        <button
-          className="addbar-adtbtn"
-          onClick={() => onAddTask(this.state.task)}
-        >
-          add
-        </button>
-      ) : null;
-
-    return (
-      <div className="addbar">
-        <div className="circle"></div>
-
-        <input
-          type="text"
-          id="addTask"
-          className="addbar-task"
-          placeholder="Create a new todo.."
-          name="task"
-          value={this.state.task}
-          onChange={this.handleChange}
-          onKeyDown={this.handleKeyDown}
-        />
-
-        {displaySaveBtn}
-      </div>
-    );
-  }
-}
+      {displaySaveBtn}
+    </div>
+  );
+};
 
 AddTaskBar.propTypes = {
   // Handler if a task is entered and commited via the save btn or hitting enter
   onAddTask: PropTypes.func,
+  // loader
+  loading: PropTypes.bool,
 };
 
 AddTaskBar.defaultProps = {
   onAddTask: undefined,
+  loading: false,
 };
-
-export { AddTaskBar };
