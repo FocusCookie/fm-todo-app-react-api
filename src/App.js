@@ -57,6 +57,9 @@ function App() {
   const [loadingLogin, setLoadgingLogin] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [loadTasks, setLoadTasks] = useState(false);
+  const [isAddingTask, setIsAddingTask] = useState(false);
+  const [taskFilter, setTaskFilter] = useState(""); //TODO implement filtering by display the filtered array in tasklist and not hte tasks itself
+  const [ongoingAction, setOngoingAction] = useState(false);
   const [loginError, setLoginError] = useState("");
 
   useEffect(() => {
@@ -117,29 +120,62 @@ function App() {
           </div>
         </header>
 
-        <section className="card addTaskBar">
+        <section
+          className={`card addTaskBar ${
+            isAddingTask ? "loading-add-task" : ""
+          }`}
+        >
           <AddTaskBar
-            onAddTask={(description) =>
+            disabled={isAddingTask || loadTasks}
+            onAddTask={(description) => {
+              setIsAddingTask(true);
+
               api
                 .addTask(description)
                 .then((res) => {
                   const newTasks = [...tasks, res.data];
                   setTasks(newTasks);
+
+                  setIsAddingTask(false);
                 })
-                .catch((err) => console.log(err))
-            }
+                .catch((err) => {
+                  setIsAddingTask(false);
+                  console.log(err);
+                });
+            }}
           />
         </section>
 
         <section className="card">
           <Tasklist
             tasks={tasks}
+            disabled={ongoingAction}
             loading={loadTasks}
-            onCompleteTask={(e) => {
-              console.log("complete ", e);
+            onCompleteTask={(id, updateCompleteState) => {
+              if (!ongoingAction) {
+                setOngoingAction(true);
+
+                api.updateTask(id, updateCompleteState).then((updatedTask) => {
+                  const newTasks = tasks.slice();
+                  const indexOfUpdatedTask = newTasks.findIndex(
+                    (t) => t._id === id
+                  );
+                  newTasks[indexOfUpdatedTask] = updatedTask;
+                  setTasks(newTasks);
+
+                  setOngoingAction(false);
+                });
+              }
             }}
-            onDeleteTask={(e) => {
-              console.log("delete ", e);
+            onDeleteTask={(id) => {
+              if (!ongoingAction) {
+                setOngoingAction(true);
+                api.deleteTask(id).then(() => {
+                  const newTasks = tasks.filter((t) => t._id !== id);
+                  setTasks(newTasks);
+                  setOngoingAction(false);
+                });
+              }
             }}
             onSaveTask={(id, description) => {
               console.log("save ", id, description);

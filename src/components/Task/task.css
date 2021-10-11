@@ -93,6 +93,20 @@
   background: var(--clr-primary);
 }
 
+.delete-glow {
+  animation: glow 1.5s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
 @media only screen and (min-width: 500px) {
   .task * {
     font-size: 18px;

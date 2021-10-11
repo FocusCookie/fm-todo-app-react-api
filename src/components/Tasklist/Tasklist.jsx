@@ -7,6 +7,7 @@ import { Task } from "../Task/Task";
 export const Tasklist = ({
   tasks,
   loading,
+  disabled,
   onCompleteTask,
   onDeleteTask,
   onSaveTask,
@@ -27,6 +28,7 @@ export const Tasklist = ({
       if (tasks) {
         return tasks.map((task) => (
           <Task
+            disabled={disabled}
             className="task"
             key={`task-${task._id}`}
             task={task}

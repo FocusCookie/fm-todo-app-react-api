@@ -19,3 +19,9 @@ export const Incompleted = Template.bind({});
 Incompleted.args = {
   task: { _id: "123", completed: false, description: "Task description" },
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+  task: { _id: "123", completed: false, description: "Task description" },
+};

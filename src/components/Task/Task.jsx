@@ -6,16 +6,20 @@ import checkIcon from "../../images/icon-check.svg";
 
 export const Task = ({
   task,
+  disabled,
   onCompleteTask,
   onDeleteTask,
   onSaveTask,
   ...props
 }) => {
   const [value, setValue] = useState("");
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     setValue(task.description);
-  }, [task.description]);
+    setIsUpdating(false);
+  }, [task]);
 
   let checked;
   if (task.completed) {
@@ -38,15 +42,20 @@ export const Task = ({
   );
 
   return (
-    <div className="task">
+    <div className={`task ${isDeleting || isUpdating ? "delete-glow" : ""}`}>
       <div
+        disabled={disabled}
         className={`checkbox ${task.completed ? "checkbox-bg" : ""}`}
-        onClick={() => onCompleteTask(task._id)}
+        onClick={() => {
+          setIsUpdating(true);
+          onCompleteTask(task._id, !task.completed);
+        }}
       >
         {checked}
       </div>
 
       <input
+        disabled={disabled}
         type="text"
         id={`description-${task._id}`}
         className={`description ${task.completed ? "text--checked" : ""}`}
@@ -61,8 +70,10 @@ export const Task = ({
 
       <div onClick={(event) => event.stopPropagation()}>
         <button
+          disabled={disabled}
           className="delete"
           onClick={() => {
+            setIsDeleting(true);
             onDeleteTask(task._id);
           }}
         >
@@ -86,6 +97,9 @@ Task.propTypes = {
     completed: PropTypes.bool,
   }),
 
+  /**  disable inputs and buttons   */
+  disabled: PropTypes.bool,
+
   /**  Optional click handler   */
   onClick: PropTypes.func,
 
@@ -100,6 +114,7 @@ Task.propTypes = {
 };
 
 Task.defaultProps = {
+  disabled: undefined,
   onClick: undefined,
   onCompleteTask: undefined,
   onDeleteTask: undefined,

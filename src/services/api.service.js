@@ -108,13 +108,14 @@ const updateTask = async function (id, completed, description) {
     if (!id) throw new Error("Api: updateTask - no task given");
 
     let patch = {};
-    if (completed) patch.completed = completed;
+    if (completed !== undefined || completed !== null)
+      patch.completed = completed;
     if (description) patch.description = description;
 
     setAuthHeader();
     const updatedTask = await api.put(`task/${id}`, patch);
 
-    return updatedTask.data;
+    return updatedTask.data.data;
   } catch (error) {
     throw new Error(error.response.data);
   }
@@ -132,34 +133,5 @@ const deleteTask = async function (id, completed, description) {
     throw new Error(error.response.data);
   }
 };
-
-//TODO: Delete comments bellow
-/* register("test", "1234567").then((user) => {
-  console.log(user);
-}); */
-
-/* ONLY WITHOUT LOCALSTORAGE testable with node 
-login("test", "1234567").then(async () => {
-  console.log("LOGED IN");
-
-  const me = await getLoggedInUserProfile();
-  console.log("User ", me);
-
-  const createdTask = await addTask("buy milk");
-  console.log("Created ", createdTask);
-
-  const tasks = await getTasks();
-  console.log("Tasks ", tasks);
-
-  const updated = await updateTask(tasks.data[0]._id, true, "changed via app");
-  console.log("updated ", updated);
-
-  const deletedTask = await deleteTask(tasks.data[tasks.data.length - 1]._id);
-  console.log("deleted", deletedTask);
-
-  const isLoggedOut = await logout();
-  console.log("logged out ---> ", isLoggedOut);
-});
-*/
 
 export { register, login, logout, getTasks, addTask, updateTask, deleteTask };
