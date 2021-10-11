@@ -26,6 +26,7 @@
   align-items: stretch;
   gap: 1rem;
   box-shadow: var(--shadow);
+  width: 100%;
 }
 
 .login-input {
@@ -66,4 +67,34 @@
 .login-btn:hover {
   color: var(--clr-white);
   background: var(--clr-primary);
+}
+
+.error {
+  border-radius: 0.625rem;
+  border: 2px solid #dd4c4f;
+  color: #dd4c4f;
+  padding: 0 1rem;
+}
+
+.loading {
+  color: var(--clr-white);
+  background: var(--clr-primary);
+  border: 1px solid var(--clr-primary);
+  animation: glow 1.5s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .login-card {
+    max-width: 400px;
+  }
 }
