@@ -25,6 +25,18 @@ header {
   justify-content: space-between;
 }
 
+.header-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-logout-wrapper {
+  background: var(--clr-white);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  border: none;
+}
+
 .theme-btn {
   background: transparent;
   border: none;

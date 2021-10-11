@@ -48,7 +48,7 @@ export const Task = ({
 
       <input
         type="text"
-        id="description"
+        id={`description-${task._id}`}
         className={`description ${task.completed ? "text--checked" : ""}`}
         name="description"
         value={value}

@@ -18,6 +18,7 @@ class AddTaskBar extends React.Component {
   handleKeyDown = (e) => {
     if (e.key === "Enter" && this.state.task !== "") {
       this.props.onAddTask(this.state.task);
+      this.setState({ task: "" });
     }
   };
 

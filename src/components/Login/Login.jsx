@@ -87,10 +87,7 @@ export const Login = ({ onLogin, errorMsg, loading, ...props }) => {
             }
 
             if (usernameIsValid(username) && passwordIsValid(password)) {
-              onLogin({
-                email: `username${".testing@testing.com"}`,
-                password: password,
-              });
+              onLogin(`${username}.testing@testing.com`, password);
             }
           }}
         >
@@ -114,6 +111,6 @@ Login.propTypes = {
 
 Login.defaultProps = {
   onLogin: undefined,
-  login: false,
+  loading: false,
   errorMsg: "",
 };
