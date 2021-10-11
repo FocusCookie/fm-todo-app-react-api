@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./login.css";
 
-//TODO: Implement login via api, return bearer token
-
 function usernameIsValid(str) {
   var regex = /^[A-Za-z]+$/;
   if (str.match(regex) && str.length >= 3) {
