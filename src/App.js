@@ -11,6 +11,8 @@ import { useEffect, useState } from "react";
 
 import * as api from "./services/api.service";
 
+//TODO: Add registration
+
 function App() {
   //TODO: refactor into [darkMode, setDarkMode]
   const [state, setValue] = useState({ darkMode: false });
@@ -76,6 +78,8 @@ function App() {
                 onClick={() => {
                   api.logout();
                   localStorage.removeItem("token");
+                  setTasks([]);
+                  setDisplayed([]);
                   setLoggedIn(false);
                 }}
               />
@@ -174,7 +178,7 @@ function App() {
 
                 const task = tasks.find((t) => t._id === id);
 
-                //TODO: API anpassen weil bei description muss complete mitgegeben werden
+                //TODO: Refactoring API anpassen weil bei description muss complete mitgegeben werden
                 api
                   .updateTask(id, task.completed, description)
                   .then((updatedTask) => {
@@ -215,7 +219,36 @@ function App() {
 
                   setDisplayed(newTasks);
                 }}
-                onClearCompleted={(id) => console.log("clear completed tasks")}
+                onClearCompleted={async () => {
+                  if (!ongoingAction) {
+                    setOngoingAction(true);
+
+                    const unclearedTasks = tasks.filter((t) => !t.completed);
+                    const clearedTasks = tasks.filter((t) => t.completed);
+                    const clearPromises = clearedTasks.map((t) =>
+                      api.deleteTask(t._id)
+                    );
+
+                    Promise.all(clearPromises).then(() => {
+                      setTasks(unclearedTasks);
+
+                      let newDisplayed;
+                      if (filter === "all")
+                        newDisplayed = unclearedTasks.slice();
+                      if (filter === "active")
+                        newDisplayed = unclearedTasks.filter(
+                          (t) => !t.completed
+                        );
+                      if (filter === "completed")
+                        newDisplayed = unclearedTasks.filter(
+                          (t) => t.completed
+                        );
+
+                      setDisplayed(newDisplayed);
+                      setOngoingAction(false);
+                    });
+                  }
+                }}
               />{" "}
             </div>
           )}

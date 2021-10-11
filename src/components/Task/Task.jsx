@@ -31,8 +31,6 @@ export const Task = ({
         alt="Check a task as complete."
       />
     );
-  } else {
-    checked = <div tabIndex="1" className="check--unchecked"></div>;
   }
 
   const saveBtn = (
@@ -50,16 +48,18 @@ export const Task = ({
 
   return (
     <div className={`task ${isDeleting || isUpdating ? "delete-glow" : ""}`}>
-      <div
+      <button
         disabled={disabled}
-        className={`checkbox ${task.completed ? "checkbox-bg" : ""}`}
+        className={`checkbox ${task.completed ? "checkbox-bg" : ""} ${
+          task.completed ? "" : "check--unchecked"
+        }`}
         onClick={() => {
           setIsUpdating(true);
           onCompleteTask(task._id, !task.completed);
         }}
       >
         {checked}
-      </div>
+      </button>
 
       <input
         disabled={disabled}
@@ -70,6 +70,12 @@ export const Task = ({
         value={value}
         onChange={(e) => {
           setValue(e.target.value);
+        }}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && e.target.value !== "") {
+            setIsUpdating(true);
+            onSaveTask(task._id, value);
+          }
         }}
       />
 

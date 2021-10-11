@@ -11,7 +11,7 @@ ReactDOM.render(
         height: 100vh;
       }
       body {
-        height: 100%;
+        min-height: 100%;
         margin: 0px;
         padding: 0px;
       }

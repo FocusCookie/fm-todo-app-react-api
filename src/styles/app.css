@@ -117,17 +117,21 @@ header {
   .content-wrapper {
     max-width: 540px;
   }
+
+  .bg-picture {
+    background-size: contain;
+  }
+
+  .app-filterbar {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 700px) {
   .bg-picture-light {
     background-image: url("../images/bg-desktop-light.jpg");
   }
   .bg-picture-dark {
     background-image: url("../images/bg-desktop-dark.jpg");
-  }
-  .bg-picture {
-    background-size: auto;
-  }
-
-  .app-filterbar {
-    display: none;
   }
 }
