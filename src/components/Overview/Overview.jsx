@@ -13,7 +13,7 @@ export const Overview = ({
 }) => {
   return (
     <div {...props} className="overview">
-      <span>{`${tasksLeft} tasks left`}</span>
+      <span>{`${tasksLeft} tasks`}</span>
       <div className="overview-filterbar">
         <FilterBar
           onSetFilter={(filter) => onSetFilter(filter)}
