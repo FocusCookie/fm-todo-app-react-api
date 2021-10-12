@@ -24,7 +24,7 @@ function showErrorMsg(msg) {
   );
 }
 
-export const Login = ({ onLogin, errorMsg, loading, ...props }) => {
+export const Login = ({ onLogin, onRegister, errorMsg, loading, ...props }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -33,9 +33,28 @@ export const Login = ({ onLogin, errorMsg, loading, ...props }) => {
     setError(errorMsg);
   }, [errorMsg]);
 
+  function checkForErrors(username, password) {
+    setError("");
+
+    if (!usernameIsValid(username))
+      setError(
+        "The name must contain only alphabetical letters and must have a minumum length of 3 characters."
+      );
+
+    if (!passwordIsValid(password))
+      setError("The password must have a minimum length of 7 characters.");
+
+    if (!usernameIsValid(username) && !passwordIsValid(password)) {
+      setError(
+        "The name must contain only alphabetical letters, must have a minumum length of 3 characters and the password must have a minimum length of 7 characters."
+      );
+    }
+  }
+
   return (
     <div id="login" {...props}>
       <div className="login-card">
+        <h1 className="text--title">TODO</h1>
         <label htmlFor="login-name" className="login-input">
           Username
           <input
@@ -64,27 +83,12 @@ export const Login = ({ onLogin, errorMsg, loading, ...props }) => {
             }}
           />
         </label>
+
         <button
           disabled={loading}
           className={`login-btn ${loading ? "loading" : ""}`}
           onClick={() => {
-            setError("");
-
-            if (!usernameIsValid(username))
-              setError(
-                "The name must contain only alphabetical letters and must have a minumum length of 3 characters."
-              );
-
-            if (!passwordIsValid(password))
-              setError(
-                "The password must have a minimum length of 7 characters."
-              );
-
-            if (!usernameIsValid(username) && !passwordIsValid(password)) {
-              setError(
-                "The name must contain only alphabetical letters, must have a minumum length of 3 characters and the password must have a minimum length of 7 characters."
-              );
-            }
+            checkForErrors(username, password);
 
             if (usernameIsValid(username) && passwordIsValid(password)) {
               onLogin(`${username}.testing@testing.com`, password);
@@ -94,6 +98,20 @@ export const Login = ({ onLogin, errorMsg, loading, ...props }) => {
           Login
         </button>
 
+        <button
+          disabled={loading}
+          className={`register-btn ${loading ? "loading" : ""}`}
+          onClick={() => {
+            checkForErrors(username, password);
+
+            if (usernameIsValid(username) && passwordIsValid(password)) {
+              onRegister(`${username}.testing@testing.com`, password);
+            }
+          }}
+        >
+          Register
+        </button>
+
         {showErrorMsg(error)}
       </div>
     </div>
@@ -101,8 +119,10 @@ export const Login = ({ onLogin, errorMsg, loading, ...props }) => {
 };
 
 Login.propTypes = {
-  // Handler when username is valid and the password is provided
+  // Handler when username is valid and the password is provided and wants to login
   onLogin: PropTypes.func,
+  // Handler when username is valid and the password is provided and wants to register
+  onRegister: PropTypes.func,
   // error msg to dispay
   errorMsg: PropTypes.string,
   // Loader to Disable inputs and button
@@ -111,6 +131,7 @@ Login.propTypes = {
 
 Login.defaultProps = {
   onLogin: undefined,
+  onRegister: undefined,
   loading: false,
   errorMsg: "",
 };

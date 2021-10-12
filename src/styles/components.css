@@ -1,5 +1,6 @@
 :root {
   --clr-primary: hsl(220, 98%, 61%);
+  --clr-primary-light: hsl(220, 98%, 71%);
   --clr-accent: hsl(280, 87%, 65%);
   --gradient: linear-gradient(
     to bottom,

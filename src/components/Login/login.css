@@ -20,7 +20,10 @@
 
 .login-card {
   background: var(--clr-white);
-  padding: 2rem;
+  background-image: url("../../images/bg-mobile-light.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 3rem 2rem 2rem 2rem;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -32,7 +35,7 @@
 
 .login-input {
   display: flex;
-  color: var(--clr-dark-grayish-blue);
+  color: var(--clr-white);
   flex-direction: column;
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -57,17 +60,30 @@
 
 .login-btn {
   border-radius: 0.25rem;
+  color: var(--clr-white);
+  border: none;
+  line-height: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: var(--clr-primary);
+  border: 1px solid var(--clr-primary);
+}
+.login-btn:hover {
+  background: var(--clr-primary-light);
+}
+
+.register-btn {
+  border-radius: 0.25rem;
   color: var(--clr-primary);
   border: none;
   line-height: 2rem;
   font-weight: 900;
   text-transform: uppercase;
   background: var(--clr-white);
-  border: 1px solid var(--clr-primary);
+  border: 1px solid var(--clr-white);
 }
-.login-btn:hover {
-  color: var(--clr-white);
-  background: var(--clr-primary);
+.register-btn:hover {
+  border: 1px solid var(--clr-primary);
 }
 
 .error {

@@ -43,6 +43,9 @@
   border-radius: calc(var(--checkbox-mobile) - 2px);
   border: 1px solid var(--clr-very-light-grayish-blue);
 }
+.check--unchecked:hover {
+  border: 1px solid var(--clr-primary);
+}
 .checkbox:focus-within {
   border: 2px solid var(--clr-primary);
 }
@@ -76,14 +79,15 @@
 .delete-icon {
   height: 1rem;
   width: 1rem;
-  fill: red;
+}
+.delete-icon:hover {
+  border-radius: 1rem;
+  border: 1px solid var(--clr-very-dark-grayish-blue);
 }
 
 .save-btn {
   height: var(--checkbox-mobile);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-top: 0.21875rem;
   color: var(--clr-primary);
   font-weight: 700;
   border: 1px solid var(--clr-primary);

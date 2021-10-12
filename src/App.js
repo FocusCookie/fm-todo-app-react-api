@@ -11,8 +11,6 @@ import { useEffect, useState } from "react";
 
 import * as api from "./services/api.service";
 
-//TODO: Add registration
-
 function App() {
   //TODO: refactor into [darkMode, setDarkMode]
   const [state, setValue] = useState({ darkMode: false });
@@ -46,9 +44,20 @@ function App() {
     }
   }, [loggedIn]);
 
+  function tasksByFilter(tasks, filter) {
+    let newDisplayed;
+    if (filter === "all") newDisplayed = tasks.slice();
+
+    if (filter === "active") newDisplayed = tasks.filter((t) => !t.completed);
+
+    if (filter === "completed") newDisplayed = tasks.filter((t) => t.completed);
+
+    return newDisplayed;
+  }
+
   return (
     <div
-      className={`App bg-picture ${
+      className={`app bg-picture ${
         state.darkMode ? "bg-picture-dark" : "bg-picture-light"
       } ${state.darkMode ? "dark-theme" : ""}`}
     >
@@ -139,14 +148,7 @@ function App() {
                   newTasks[indexOfUpdatedTask] = updatedTask;
                   setTasks(newTasks);
 
-                  let newDisplayed;
-                  if (filter === "all") newDisplayed = newTasks.slice();
-                  if (filter === "active")
-                    newDisplayed = newTasks.filter((t) => !t.completed);
-                  if (filter === "completed")
-                    newDisplayed = newTasks.filter((t) => t.completed);
-
-                  setDisplayed(newDisplayed);
+                  setDisplayed(tasksByFilter(newTasks, filter));
 
                   setOngoingAction(false);
                 });
@@ -159,14 +161,7 @@ function App() {
                   const newTasks = tasks.filter((t) => t._id !== id);
                   setTasks(newTasks);
 
-                  let newDisplayed;
-                  if (filter === "all") newDisplayed = newTasks.slice();
-                  if (filter === "active")
-                    newDisplayed = newTasks.filter((t) => !t.completed);
-                  if (filter === "completed")
-                    newDisplayed = newTasks.filter((t) => t.completed);
-
-                  setDisplayed(newDisplayed);
+                  setDisplayed(tasksByFilter(newTasks, filter));
 
                   setOngoingAction(false);
                 });
@@ -189,14 +184,7 @@ function App() {
                     newTasks[indexOfUpdatedTask] = updatedTask;
                     setTasks(newTasks);
 
-                    let newDisplayed;
-                    if (filter === "all") newDisplayed = newTasks.slice();
-                    if (filter === "active")
-                      newDisplayed = newTasks.filter((t) => !t.completed);
-                    if (filter === "completed")
-                      newDisplayed = newTasks.filter((t) => t.completed);
-
-                    setDisplayed(newDisplayed);
+                    setDisplayed(tasksByFilter(newTasks, filter));
 
                     setOngoingAction(false);
                   });
@@ -210,14 +198,8 @@ function App() {
                 activeFilter={filter}
                 onSetFilter={(newFilter) => {
                   setFilter(newFilter);
-                  let newTasks;
-                  if (newFilter === "all") newTasks = tasks.slice();
-                  if (newFilter === "active")
-                    newTasks = tasks.filter((t) => !t.completed);
-                  if (newFilter === "completed")
-                    newTasks = tasks.filter((t) => t.completed);
 
-                  setDisplayed(newTasks);
+                  setDisplayed(tasksByFilter(tasks, newFilter));
                 }}
                 onClearCompleted={async () => {
                   if (!ongoingAction) {
@@ -231,20 +213,7 @@ function App() {
 
                     Promise.all(clearPromises).then(() => {
                       setTasks(unclearedTasks);
-
-                      let newDisplayed;
-                      if (filter === "all")
-                        newDisplayed = unclearedTasks.slice();
-                      if (filter === "active")
-                        newDisplayed = unclearedTasks.filter(
-                          (t) => !t.completed
-                        );
-                      if (filter === "completed")
-                        newDisplayed = unclearedTasks.filter(
-                          (t) => t.completed
-                        );
-
-                      setDisplayed(newDisplayed);
+                      setDisplayed(tasksByFilter(unclearedTasks, filter));
                       setOngoingAction(false);
                     });
                   }
@@ -278,6 +247,23 @@ function App() {
         <Login
           loading={loadingLogin}
           errorMsg={loginError}
+          onRegister={(email, password) => {
+            setLoginError("");
+            setLoadgingLogin(true);
+
+            api
+              .register(email, password)
+              .then((user) => {
+                localStorage.setItem("token", user.token);
+                setLoadgingLogin(false);
+                setLoggedIn(true);
+              })
+              .catch((err) => {
+                setLoadgingLogin(false);
+                setLoginError(err.message);
+                console.log(err);
+              });
+          }}
           onLogin={(email, password) => {
             setLoginError("");
             setLoadgingLogin(true);
@@ -291,7 +277,7 @@ function App() {
               })
               .catch((err) => {
                 setLoadgingLogin(false);
-                setLoginError("Unable to login");
+                setLoginError("Unable to login.");
                 console.log(err);
               });
           }}

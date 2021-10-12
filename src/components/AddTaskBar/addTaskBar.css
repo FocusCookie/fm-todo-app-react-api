@@ -36,14 +36,13 @@
 
 .addbar-adtbtn {
   font-size: 0.75rem;
-
   border-radius: calc(var(--circle-mobile) / 2);
   border: 1px solid var(--clr-primary);
   background: transparent;
   color: var(--clr-primary);
   font-weight: 900;
   height: var(--circle-mobile);
-  padding: 0 0.5rem 0.1rem 0.5rem;
+  padding-top: 0.21875rem;
   text-transform: uppercase;
 }
 .addbar-adtbtn:hover {

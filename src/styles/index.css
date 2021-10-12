@@ -4,7 +4,3 @@
   align-content: center;
   height: 100%;
 }
-/* This is necessary becaue the initial hmtl was not setup with margin:0 padding:0 */
-.addbar-adtbtn {
-  padding: 0.1rem 0.5rem;
-}

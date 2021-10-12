@@ -11,28 +11,18 @@ function setAuthHeader() {
   }
 }
 
-const register = async function (username, password) {
+const register = async function (email, password) {
   try {
-    const isValidUsername = new RegExp(/^[A-Za-z]+$/);
-
-    if (!isValidUsername.test(username))
-      throw new Error(
-        "Invalid Username, only characters are allowed. No spaces, dots, ..."
-      );
-
-    if (password.length < 7)
-      throw new Error("Password length needs to be 7 chars minimum");
-
     const user = {
-      email: `${username}.testing@testing.com`,
+      email: email,
       password: password,
-      name: username,
+      name: email.split(".")[0],
       age: 21,
     };
 
     const createdUser = await api.post("user/register", user);
 
-    return createdUser;
+    return createdUser.data;
   } catch (error) {
     throw new Error(error.response.data);
   }
