@@ -9,6 +9,28 @@ exports[`Storyshots Components/AddTaskBar Default 1`] = `
   />
   <input
     className="addbar-task"
+    disabled={false}
+    id="addTask"
+    name="task"
+    onChange={[Function]}
+    onKeyDown={[Function]}
+    placeholder="Create a new todo.."
+    type="text"
+    value=""
+  />
+</div>
+`;
+
+exports[`Storyshots Components/AddTaskBar Disabled 1`] = `
+<div
+  className="addbar"
+>
+  <div
+    className="circle"
+  />
+  <input
+    className="addbar-task"
+    disabled={true}
     id="addTask"
     name="task"
     onChange={[Function]}
@@ -228,17 +250,22 @@ exports[`Storyshots Components/FilterBar None Filter Set 1`] = `
 exports[`Storyshots Components/Login Default 1`] = `
 <div
   id="login"
-  login={false}
 >
   <div
     className="login-card"
   >
+    <h1
+      className="text--title"
+    >
+      TODO
+    </h1>
     <label
       className="login-input"
       htmlFor="login-name"
     >
       Username
       <input
+        disabled={false}
         id="login-name"
         onChange={[Function]}
         placeholder="Username"
@@ -252,6 +279,7 @@ exports[`Storyshots Components/Login Default 1`] = `
     >
       Password
       <input
+        disabled={false}
         id="login-password"
         onChange={[Function]}
         placeholder="*******"
@@ -261,9 +289,17 @@ exports[`Storyshots Components/Login Default 1`] = `
     </label>
     <button
       className="login-btn "
+      disabled={false}
       onClick={[Function]}
     >
       Login
+    </button>
+    <button
+      className="register-btn "
+      disabled={false}
+      onClick={[Function]}
+    >
+      Register
     </button>
   </div>
 </div>
@@ -272,17 +308,22 @@ exports[`Storyshots Components/Login Default 1`] = `
 exports[`Storyshots Components/Login Error Msg Provided 1`] = `
 <div
   id="login"
-  login={false}
 >
   <div
     className="login-card"
   >
+    <h1
+      className="text--title"
+    >
+      TODO
+    </h1>
     <label
       className="login-input"
       htmlFor="login-name"
     >
       Username
       <input
+        disabled={false}
         id="login-name"
         onChange={[Function]}
         placeholder="Username"
@@ -296,6 +337,7 @@ exports[`Storyshots Components/Login Error Msg Provided 1`] = `
     >
       Password
       <input
+        disabled={false}
         id="login-password"
         onChange={[Function]}
         placeholder="*******"
@@ -305,9 +347,17 @@ exports[`Storyshots Components/Login Error Msg Provided 1`] = `
     </label>
     <button
       className="login-btn "
+      disabled={false}
       onClick={[Function]}
     >
       Login
+    </button>
+    <button
+      className="register-btn "
+      disabled={false}
+      onClick={[Function]}
+    >
+      Register
     </button>
   </div>
 </div>
@@ -316,11 +366,15 @@ exports[`Storyshots Components/Login Error Msg Provided 1`] = `
 exports[`Storyshots Components/Login Loading 1`] = `
 <div
   id="login"
-  login={false}
 >
   <div
     className="login-card"
   >
+    <h1
+      className="text--title"
+    >
+      TODO
+    </h1>
     <label
       className="login-input"
       htmlFor="login-name"
@@ -356,6 +410,13 @@ exports[`Storyshots Components/Login Loading 1`] = `
     >
       Login
     </button>
+    <button
+      className="register-btn loading"
+      disabled={true}
+      onClick={[Function]}
+    >
+      Register
+    </button>
   </div>
 </div>
 `;
@@ -365,7 +426,7 @@ exports[`Storyshots Components/Overview Filter Set 1`] = `
   className="overview"
 >
   <span>
-    5 tasks left
+    5 tasks
   </span>
   <div
     className="overview-filterbar"
@@ -415,7 +476,7 @@ exports[`Storyshots Components/Overview No Filter Set 1`] = `
   className="overview"
 >
   <span>
-    5 tasks left
+    5 tasks
   </span>
   <div
     className="overview-filterbar"
@@ -465,7 +526,7 @@ exports[`Storyshots Components/Overview No Task 1`] = `
   className="overview"
 >
   <span>
-    0 tasks left
+    0 tasks
   </span>
   <div
     className="overview-filterbar"
@@ -515,7 +576,7 @@ exports[`Storyshots Components/Overview With Tasks Left 1`] = `
   className="overview"
 >
   <span>
-    5 tasks left
+    5 tasks
   </span>
   <div
     className="overview-filterbar"
@@ -562,10 +623,10 @@ exports[`Storyshots Components/Overview With Tasks Left 1`] = `
 
 exports[`Storyshots Components/Task Completed 1`] = `
 <div
-  className="task"
+  className="task "
 >
-  <div
-    className="checkbox checkbox-bg"
+  <button
+    className="checkbox checkbox-bg "
     onClick={[Function]}
   >
     <img
@@ -574,12 +635,13 @@ exports[`Storyshots Components/Task Completed 1`] = `
       src="icon-check.svg"
       tabIndex="1"
     />
-  </div>
+  </button>
   <input
     className="description text--checked"
-    id="description"
+    id="description-123"
     name="description"
     onChange={[Function]}
+    onKeyDown={[Function]}
     type="text"
     value=""
   />
@@ -606,24 +668,64 @@ exports[`Storyshots Components/Task Completed 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components/Task Incompleted 1`] = `
+exports[`Storyshots Components/Task Disabled 1`] = `
 <div
-  className="task"
+  className="task "
 >
-  <div
-    className="checkbox "
+  <button
+    className="checkbox  check--unchecked"
+    disabled={true}
     onClick={[Function]}
-  >
-    <div
-      className="check--unchecked"
-      tabIndex="1"
-    />
-  </div>
+  />
   <input
     className="description "
-    id="description"
+    disabled={true}
+    id="description-123"
     name="description"
     onChange={[Function]}
+    onKeyDown={[Function]}
+    type="text"
+    value=""
+  />
+  <button
+    className="save-btn"
+    disabled={true}
+    onClick={[Function]}
+  >
+    save
+  </button>
+  <div
+    onClick={[Function]}
+  >
+    <button
+      className="delete"
+      disabled={true}
+      onClick={[Function]}
+    >
+      <img
+        alt="Delete task."
+        className="delete-icon"
+        src="icon-cross.svg"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Components/Task Incompleted 1`] = `
+<div
+  className="task "
+>
+  <button
+    className="checkbox  check--unchecked"
+    onClick={[Function]}
+  />
+  <input
+    className="description "
+    id="description-123"
+    name="description"
+    onChange={[Function]}
+    onKeyDown={[Function]}
     type="text"
     value=""
   />
@@ -655,22 +757,18 @@ exports[`Storyshots Components/Tasklist Loaded 1`] = `
   className="Tasklist"
 >
   <div
-    className="task"
+    className="task "
   >
-    <div
-      className="checkbox "
+    <button
+      className="checkbox  check--unchecked"
       onClick={[Function]}
-    >
-      <div
-        className="check--unchecked"
-        tabIndex="1"
-      />
-    </div>
+    />
     <input
       className="description "
-      id="description"
+      id="description-1"
       name="description"
       onChange={[Function]}
+      onKeyDown={[Function]}
       type="text"
       value=""
     />
@@ -696,22 +794,18 @@ exports[`Storyshots Components/Tasklist Loaded 1`] = `
     </div>
   </div>
   <div
-    className="task"
+    className="task "
   >
-    <div
-      className="checkbox "
+    <button
+      className="checkbox  check--unchecked"
       onClick={[Function]}
-    >
-      <div
-        className="check--unchecked"
-        tabIndex="1"
-      />
-    </div>
+    />
     <input
       className="description "
-      id="description"
+      id="description-2"
       name="description"
       onChange={[Function]}
+      onKeyDown={[Function]}
       type="text"
       value=""
     />
@@ -737,22 +831,18 @@ exports[`Storyshots Components/Tasklist Loaded 1`] = `
     </div>
   </div>
   <div
-    className="task"
+    className="task "
   >
-    <div
-      className="checkbox "
+    <button
+      className="checkbox  check--unchecked"
       onClick={[Function]}
-    >
-      <div
-        className="check--unchecked"
-        tabIndex="1"
-      />
-    </div>
+    />
     <input
       className="description "
-      id="description"
+      id="description-3"
       name="description"
       onChange={[Function]}
+      onKeyDown={[Function]}
       type="text"
       value=""
     />
@@ -778,10 +868,10 @@ exports[`Storyshots Components/Tasklist Loaded 1`] = `
     </div>
   </div>
   <div
-    className="task"
+    className="task "
   >
-    <div
-      className="checkbox checkbox-bg"
+    <button
+      className="checkbox checkbox-bg "
       onClick={[Function]}
     >
       <img
@@ -790,12 +880,13 @@ exports[`Storyshots Components/Tasklist Loaded 1`] = `
         src="icon-check.svg"
         tabIndex="1"
       />
-    </div>
+    </button>
     <input
       className="description text--checked"
-      id="description"
+      id="description-4"
       name="description"
       onChange={[Function]}
+      onKeyDown={[Function]}
       type="text"
       value=""
     />
@@ -841,412 +932,4 @@ exports[`Storyshots Components/Tasklist Loading 1`] = `
     />
   </div>
 </div>
-`;
-
-exports[`Storyshots Example/Button Large 1`] = `
-<button
-  className="storybook-button storybook-button--large storybook-button--secondary"
-  style={null}
-  type="button"
->
-  Button
-</button>
-`;
-
-exports[`Storyshots Example/Button Primary 1`] = `
-<button
-  className="storybook-button storybook-button--medium storybook-button--primary"
-  style={null}
-  type="button"
->
-  Button
-</button>
-`;
-
-exports[`Storyshots Example/Button Secondary 1`] = `
-<button
-  className="storybook-button storybook-button--medium storybook-button--secondary"
-  style={null}
-  type="button"
->
-  Button
-</button>
-`;
-
-exports[`Storyshots Example/Button Small 1`] = `
-<button
-  className="storybook-button storybook-button--small storybook-button--secondary"
-  style={null}
-  type="button"
->
-  Button
-</button>
-`;
-
-exports[`Storyshots Example/Header Logged In 1`] = `
-<header>
-  <div
-    className="wrapper"
-  >
-    <div>
-      <svg
-        height="32"
-        viewBox="0 0 32 32"
-        width="32"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g
-          fill="none"
-          fillRule="evenodd"
-        >
-          <path
-            d="M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z"
-            fill="#FFF"
-          />
-          <path
-            d="M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z"
-            fill="#555AB9"
-          />
-          <path
-            d="M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z"
-            fill="#91BAF8"
-          />
-        </g>
-      </svg>
-      <h1>
-        Acme
-      </h1>
-    </div>
-    <div>
-      <button
-        className="storybook-button storybook-button--small storybook-button--secondary"
-        style={null}
-        type="button"
-      >
-        Log out
-      </button>
-    </div>
-  </div>
-</header>
-`;
-
-exports[`Storyshots Example/Header Logged Out 1`] = `
-<header>
-  <div
-    className="wrapper"
-  >
-    <div>
-      <svg
-        height="32"
-        viewBox="0 0 32 32"
-        width="32"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g
-          fill="none"
-          fillRule="evenodd"
-        >
-          <path
-            d="M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z"
-            fill="#FFF"
-          />
-          <path
-            d="M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z"
-            fill="#555AB9"
-          />
-          <path
-            d="M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z"
-            fill="#91BAF8"
-          />
-        </g>
-      </svg>
-      <h1>
-        Acme
-      </h1>
-    </div>
-    <div>
-      <button
-        className="storybook-button storybook-button--small storybook-button--secondary"
-        style={null}
-        type="button"
-      >
-        Log in
-      </button>
-      <button
-        className="storybook-button storybook-button--small storybook-button--primary"
-        style={null}
-        type="button"
-      >
-        Sign up
-      </button>
-    </div>
-  </div>
-</header>
-`;
-
-exports[`Storyshots Example/Page Logged In 1`] = `
-<article>
-  <header>
-    <div
-      className="wrapper"
-    >
-      <div>
-        <svg
-          height="32"
-          viewBox="0 0 32 32"
-          width="32"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g
-            fill="none"
-            fillRule="evenodd"
-          >
-            <path
-              d="M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z"
-              fill="#FFF"
-            />
-            <path
-              d="M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z"
-              fill="#555AB9"
-            />
-            <path
-              d="M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z"
-              fill="#91BAF8"
-            />
-          </g>
-        </svg>
-        <h1>
-          Acme
-        </h1>
-      </div>
-      <div>
-        <button
-          className="storybook-button storybook-button--small storybook-button--secondary"
-          style={null}
-          type="button"
-        >
-          Log out
-        </button>
-      </div>
-    </div>
-  </header>
-  <section>
-    <h2>
-      Pages in Storybook
-    </h2>
-    <p>
-      We recommend building UIs with a
-       
-      <a
-        href="https://componentdriven.org"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <strong>
-          component-driven
-        </strong>
-      </a>
-       
-      process starting with atomic components and ending with pages.
-    </p>
-    <p>
-      Render pages with mock data. This makes it easy to build and review page states without needing to navigate to them in your app. Here are some handy patterns for managing page data in Storybook:
-    </p>
-    <ul>
-      <li>
-        Use a higher-level connected component. Storybook helps you compose such data from the "args" of child component stories
-      </li>
-      <li>
-        Assemble data in the page component from your services. You can mock these services out using Storybook.
-      </li>
-    </ul>
-    <p>
-      Get a guided tutorial on component-driven development at
-       
-      <a
-        href="https://storybook.js.org/tutorials/"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Storybook tutorials
-      </a>
-      . Read more in the
-       
-      <a
-        href="https://storybook.js.org/docs"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        docs
-      </a>
-      .
-    </p>
-    <div
-      className="tip-wrapper"
-    >
-      <span
-        className="tip"
-      >
-        Tip
-      </span>
-       Adjust the width of the canvas with the
-       
-      <svg
-        height="10"
-        viewBox="0 0 12 12"
-        width="10"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g
-          fill="none"
-          fillRule="evenodd"
-        >
-          <path
-            d="M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z"
-            fill="#999"
-            id="a"
-          />
-        </g>
-      </svg>
-      Viewports addon in the toolbar
-    </div>
-  </section>
-</article>
-`;
-
-exports[`Storyshots Example/Page Logged Out 1`] = `
-<article>
-  <header>
-    <div
-      className="wrapper"
-    >
-      <div>
-        <svg
-          height="32"
-          viewBox="0 0 32 32"
-          width="32"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g
-            fill="none"
-            fillRule="evenodd"
-          >
-            <path
-              d="M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z"
-              fill="#FFF"
-            />
-            <path
-              d="M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z"
-              fill="#555AB9"
-            />
-            <path
-              d="M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z"
-              fill="#91BAF8"
-            />
-          </g>
-        </svg>
-        <h1>
-          Acme
-        </h1>
-      </div>
-      <div>
-        <button
-          className="storybook-button storybook-button--small storybook-button--secondary"
-          style={null}
-          type="button"
-        >
-          Log in
-        </button>
-        <button
-          className="storybook-button storybook-button--small storybook-button--primary"
-          style={null}
-          type="button"
-        >
-          Sign up
-        </button>
-      </div>
-    </div>
-  </header>
-  <section>
-    <h2>
-      Pages in Storybook
-    </h2>
-    <p>
-      We recommend building UIs with a
-       
-      <a
-        href="https://componentdriven.org"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <strong>
-          component-driven
-        </strong>
-      </a>
-       
-      process starting with atomic components and ending with pages.
-    </p>
-    <p>
-      Render pages with mock data. This makes it easy to build and review page states without needing to navigate to them in your app. Here are some handy patterns for managing page data in Storybook:
-    </p>
-    <ul>
-      <li>
-        Use a higher-level connected component. Storybook helps you compose such data from the "args" of child component stories
-      </li>
-      <li>
-        Assemble data in the page component from your services. You can mock these services out using Storybook.
-      </li>
-    </ul>
-    <p>
-      Get a guided tutorial on component-driven development at
-       
-      <a
-        href="https://storybook.js.org/tutorials/"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        Storybook tutorials
-      </a>
-      . Read more in the
-       
-      <a
-        href="https://storybook.js.org/docs"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        docs
-      </a>
-      .
-    </p>
-    <div
-      className="tip-wrapper"
-    >
-      <span
-        className="tip"
-      >
-        Tip
-      </span>
-       Adjust the width of the canvas with the
-       
-      <svg
-        height="10"
-        viewBox="0 0 12 12"
-        width="10"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g
-          fill="none"
-          fillRule="evenodd"
-        >
-          <path
-            d="M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z"
-            fill="#999"
-            id="a"
-          />
-        </g>
-      </svg>
-      Viewports addon in the toolbar
-    </div>
-  </section>
-</article>
 `;
