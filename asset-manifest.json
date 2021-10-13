@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/fm-todo-app-react-api/static/css/main.6a38ce20.chunk.css",
+    "main.js": "/fm-todo-app-react-api/static/js/main.00dd6d5c.chunk.js",
+    "main.js.map": "/fm-todo-app-react-api/static/js/main.00dd6d5c.chunk.js.map",
+    "runtime-main.js": "/fm-todo-app-react-api/static/js/runtime-main.d7aeacb4.js",
+    "runtime-main.js.map": "/fm-todo-app-react-api/static/js/runtime-main.d7aeacb4.js.map",
+    "static/js/2.929bd930.chunk.js": "/fm-todo-app-react-api/static/js/2.929bd930.chunk.js",
+    "static/js/2.929bd930.chunk.js.map": "/fm-todo-app-react-api/static/js/2.929bd930.chunk.js.map",
+    "static/js/3.0e1bc4b3.chunk.js": "/fm-todo-app-react-api/static/js/3.0e1bc4b3.chunk.js",
+    "static/js/3.0e1bc4b3.chunk.js.map": "/fm-todo-app-react-api/static/js/3.0e1bc4b3.chunk.js.map",
+    "index.html": "/fm-todo-app-react-api/index.html",
+    "static/css/main.6a38ce20.chunk.css.map": "/fm-todo-app-react-api/static/css/main.6a38ce20.chunk.css.map",
+    "static/js/2.929bd930.chunk.js.LICENSE.txt": "/fm-todo-app-react-api/static/js/2.929bd930.chunk.js.LICENSE.txt",
+    "static/media/app.css": "/fm-todo-app-react-api/static/media/bg-desktop-light.3508d620.jpg",
+    "static/media/icon-check.a8fb15d0.svg": "/fm-todo-app-react-api/static/media/icon-check.a8fb15d0.svg",
+    "static/media/icon-cross.6ee81d30.svg": "/fm-todo-app-react-api/static/media/icon-cross.6ee81d30.svg",
+    "static/media/icon-moon.6c03114b.svg": "/fm-todo-app-react-api/static/media/icon-moon.6c03114b.svg",
+    "static/media/icon-sun.910b1f9a.svg": "/fm-todo-app-react-api/static/media/icon-sun.910b1f9a.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d7aeacb4.js",
+    "static/js/2.929bd930.chunk.js",
+    "static/css/main.6a38ce20.chunk.css",
+    "static/js/main.00dd6d5c.chunk.js"
+  ]
+}
