@@ -1,90 +1,75 @@
+# Frontend Mentor - Todo app solution
 
-<p align="center">
-  <a href="https://www.chromatic.com/">
-    <img alt="Chromatic" src="https://avatars2.githubusercontent.com/u/24584319?s=200&v=4" width="60" />
-  </a>
-</p>
+This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-<h1 align="center">
-  Chromatic's Intro to Storybook React template
-</h1>
+## Table of contents
 
-This template ships with the main React and Storybook configuration files you'll need to get up and running fast.
+- [Frontend Mentor - Todo app solution](#frontend-mentor---todo-app-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshots](#screenshots)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [What I learned](#what-i-learned)
+    - [Useful resources](#useful-resources)
+  - [Author](#author)
 
-## 🚅  Quick start
+**Note: Delete this note and update the table of contents based on what sections you keep.**
 
-1.  **Create the application.**
+## Overview
 
-    Use [degit](https://github.com/Rich-Harris/degit) to get this template.
+### The challenge
 
-    ```shell
-    # Clone the template
-    npx degit chromaui/intro-storybook-react-template taskbox
-    ```
+Users should be able to:
 
-1.  **Install the dependencies.**
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Add new todos to the list
+- Mark todos as complete
+- Delete todos from the list
+- Filter by all/active/complete todos
+- Clear all completed todos
+- Toggle light and dark mode
+- **Bonus**: Drag and drop to reorder items on the list
 
-    Navigate into your new site’s directory and install the necessary dependencies.
+### Screenshots
 
-    ```shell
-    # Navigate to the directory
-    cd taskbox/
+![Login](./screenshots/login.png)
+![Desktop Light](./screenshots/desktop_light.png)
+![Desktop Dark](./screenshots/desktop_dark.png)
+![Mobile Light](./screenshots/mobile_light.png)
+![Mobile Dark](./screenshots/mobile_dark.png)
 
-    # Install the dependencies
-    yarn
-    ```
+### Links
 
-1.  **Open the source code and start editing!**
+- Solution URL: [Add solution URL here](https://github.com/FocusCookie/fm-todo-app-react-api/)
+- Live Site URL: [Add live site URL here](https://focuscookie.github.io/fm-todo-app-react-api/)
 
-    Open the `taskbox` directory in your code editor of choice and building your first component!
+## My process
 
-1.  **Browse your stories!**
+### Built with
 
-    Run `yarn storybook` to see your component's stories at `http://localhost:6006`
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- Mobile-first workflow
+- [React](https://reactjs.org/)
+- [Storybook](https://storybook.js.org/)
 
-## 🔎 What's inside?
+### What I learned
 
-A quick look at the top-level files and directories included with this template.
+React has not scoped css styles. For that reason you should use styled components or a css framework to create component classes.
 
-    .
-    ├── .storybook
-    ├── node_modules
-    ├── public
-    ├── src
-    ├── .env
-    ├── .gitignore
-    ├── LICENSE
-    ├── package.json
-    ├── yarn.lock
-    └── README.md
+That a build react app cant be hostet with the default settings of the vscode plugin live-server. You should use serve in the terminal instead. Also to host the app on github pages follow this article
+[How to host react app on github pages](https://dev.to/yuribenjamin/how-to-deploy-react-app-in-github-pages-2a1f).
 
+### Useful resources
 
-1.  **`.storybook`**: This directory contains Storybook's [configuration](https://storybook.js.org/docs/react/configure/overview) files.
+- [How to host react app on github pages](https://dev.to/yuribenjamin/how-to-deploy-react-app-in-github-pages-2a1f).
+- [Free Todo API](https://documenter.getpostman.com/view/8858534/SW7dX7JG#b7508760-058c-4d0d-8b2c-a89f7df0d42e) - An free api for a small todo app.
 
-2.  **`node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages).
+## Author
 
-3.  **`public`**: This directory will contain the development and production build of the site.
-
-4.  **`src`**: This directory will contain all of the code related to what you will see on your application.
-
-5.  **`.env`**: Simple text configuration file for controlling the application's environment constants.
-
-6.  **`.gitignore`**: This file tells git which files it should not track or maintain during the development process of your project.
-
-7. **`LICENSE`**: The template is licensed under the MIT licence.
-
-8. **`package.json`**: Standard manifest file for Node.js projects, which typically includes project specific metadata (such as the project's name, the author among other information). It's based on this file that npm will know which packages are necessary to the project.
-
-9. **`yarn.lock`**: This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(Do not change it manually).**
-
-10. **`README.md`**: A text file containing useful reference information about the project.
-
-## Contribute
-
-If you encounter an issue with the template, we encourage you to open an issue in this template's repository.
-
-## Learning Storybook
-
-1. Read our introductory tutorial at [Learn Storybook](https://storybook.js.org/tutorials/intro-to-storybook/react/en/get-started/).
-2. Learn how to transform your component libraries into design systems in our [Design Systems for Developers](https://storybook.js.org/tutorials/design-systems-for-developers/) tutorial.
-2. See our official documentation at [Storybook](https://storybook.js.org/).
+- Frontend Mentor - [@focuscookie](https://www.frontendmentor.io/profile/focuscookie)
