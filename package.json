@@ -1,15 +1,16 @@
 {
-  "name": "intro-storybook-react-template",
+  "name": "fm-todo-app-react-api",
   "version": "0.1.0",
-  "description": "Starter template to get up and running quickly with React and Storybook",
-  "author": "Chromatic <https://chromatic.com/>",
+  "description": "A small todo app, which uses an api to get and save todos.",
+  "author": "Stephan Lüddemann",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chromaui/intro-storybook-react-template"
+    "url": "https://github.com/FocusCookie/fm-todo-app-react-api/"
   },
   "bugs": {
-    "url": "https://github.com/chromaui/intro-storybook-react-template/issues"
+    "url": "https://github.com/FocusCookie/fm-todo-app-react-api/issues"
   },
+  "homepage": "https://focuscookie.github.io/fm-todo-app-react-api/",
   "license": "MIT",
   "private": true,
   "dependencies": {
@@ -28,7 +29,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
