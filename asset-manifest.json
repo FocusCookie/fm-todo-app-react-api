@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/fm-todo-app-react-api/static/css/main.7601f3cf.chunk.css",
-    "main.js": "/fm-todo-app-react-api/static/js/main.00dd6d5c.chunk.js",
-    "main.js.map": "/fm-todo-app-react-api/static/js/main.00dd6d5c.chunk.js.map",
+    "main.css": "/fm-todo-app-react-api/static/css/main.e7b5a35c.chunk.css",
+    "main.js": "/fm-todo-app-react-api/static/js/main.975da1f4.chunk.js",
+    "main.js.map": "/fm-todo-app-react-api/static/js/main.975da1f4.chunk.js.map",
     "runtime-main.js": "/fm-todo-app-react-api/static/js/runtime-main.d7aeacb4.js",
     "runtime-main.js.map": "/fm-todo-app-react-api/static/js/runtime-main.d7aeacb4.js.map",
-    "static/js/2.929bd930.chunk.js": "/fm-todo-app-react-api/static/js/2.929bd930.chunk.js",
-    "static/js/2.929bd930.chunk.js.map": "/fm-todo-app-react-api/static/js/2.929bd930.chunk.js.map",
+    "static/js/2.5059fb13.chunk.js": "/fm-todo-app-react-api/static/js/2.5059fb13.chunk.js",
+    "static/js/2.5059fb13.chunk.js.map": "/fm-todo-app-react-api/static/js/2.5059fb13.chunk.js.map",
     "static/js/3.0e1bc4b3.chunk.js": "/fm-todo-app-react-api/static/js/3.0e1bc4b3.chunk.js",
     "static/js/3.0e1bc4b3.chunk.js.map": "/fm-todo-app-react-api/static/js/3.0e1bc4b3.chunk.js.map",
     "index.html": "/fm-todo-app-react-api/index.html",
-    "static/css/main.7601f3cf.chunk.css.map": "/fm-todo-app-react-api/static/css/main.7601f3cf.chunk.css.map",
-    "static/js/2.929bd930.chunk.js.LICENSE.txt": "/fm-todo-app-react-api/static/js/2.929bd930.chunk.js.LICENSE.txt",
+    "static/css/main.e7b5a35c.chunk.css.map": "/fm-todo-app-react-api/static/css/main.e7b5a35c.chunk.css.map",
+    "static/js/2.5059fb13.chunk.js.LICENSE.txt": "/fm-todo-app-react-api/static/js/2.5059fb13.chunk.js.LICENSE.txt",
     "static/media/app.css": "/fm-todo-app-react-api/static/media/bg-desktop-light.3508d620.jpg",
     "static/media/icon-check.a8fb15d0.svg": "/fm-todo-app-react-api/static/media/icon-check.a8fb15d0.svg",
     "static/media/icon-cross.6ee81d30.svg": "/fm-todo-app-react-api/static/media/icon-cross.6ee81d30.svg",
@@ -20,8 +20,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.d7aeacb4.js",
-    "static/js/2.929bd930.chunk.js",
-    "static/css/main.7601f3cf.chunk.css",
-    "static/js/main.00dd6d5c.chunk.js"
+    "static/js/2.5059fb13.chunk.js",
+    "static/css/main.e7b5a35c.chunk.css",
+    "static/js/main.975da1f4.chunk.js"
   ]
 }
