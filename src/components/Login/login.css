@@ -100,6 +100,17 @@
   animation: glow 1.5s ease-in-out infinite;
 }
 
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+footer p {
+  color: var(--clr-dark-grayish-blue);
+}
+
 @keyframes glow {
   0%,
   100% {

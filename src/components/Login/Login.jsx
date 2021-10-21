@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import "./login.css";
+import { Button } from "../Button/Button";
 
 function usernameIsValid(str) {
   var regex = /^[A-Za-z]+$/;
@@ -28,6 +29,7 @@ export const Login = ({ onLogin, onRegister, errorMsg, loading, ...props }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [imprint, setImprint] = useState(false);
 
   useEffect(() => {
     setError(errorMsg);
@@ -52,7 +54,19 @@ export const Login = ({ onLogin, onRegister, errorMsg, loading, ...props }) => {
   }
 
   return (
-    <div id="login" {...props}>
+    <div
+      id="login"
+      {...props}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          checkForErrors(username, password);
+
+          if (usernameIsValid(username) && passwordIsValid(password)) {
+            onLogin(`${username}.testing@testing.com`, password);
+          }
+        }
+      }}
+    >
       <div className="login-card">
         <h1 className="text--title">TODO</h1>
         <label htmlFor="login-name" className="login-input">
@@ -114,6 +128,20 @@ export const Login = ({ onLogin, onRegister, errorMsg, loading, ...props }) => {
 
         {showErrorMsg(error)}
       </div>
+      <footer>
+        <p>Made with ❤️</p>
+        <Button
+          label={imprint ? "🙈 Imprint" : "👀  Imprint"}
+          onClick={() => {
+            setImprint(!imprint);
+          }}
+        />
+        {imprint ? (
+          <div className="imprint">
+            <p>https://github.com/FocusCookie/fm-todo-app-react-api</p>
+          </div>
+        ) : null}
+      </footer>
     </div>
   );
 };

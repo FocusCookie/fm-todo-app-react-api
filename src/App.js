@@ -12,8 +12,7 @@ import { useEffect, useState } from "react";
 import * as api from "./services/api.service";
 
 function App() {
-  //TODO: refactor into [darkMode, setDarkMode]
-  const [state, setValue] = useState({ darkMode: false });
+  const [darkMode, setDarkMode] = useState(false);
   const [tasks, setTasks] = useState([]);
   const [loadingLogin, setLoadgingLogin] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -58,8 +57,8 @@ function App() {
   return (
     <div
       className={`app bg-picture ${
-        state.darkMode ? "bg-picture-dark" : "bg-picture-light"
-      } ${state.darkMode ? "dark-theme" : ""}`}
+        darkMode ? "bg-picture-dark" : "bg-picture-light"
+      } ${darkMode ? "dark-theme" : ""}`}
     >
       <div className="content-wrapper">
         <header className="App-header">
@@ -68,14 +67,14 @@ function App() {
             <button
               className="theme-btn"
               onClick={() => {
-                setValue({ darkMode: !state.darkMode });
+                setDarkMode((mode) => !mode);
               }}
             >
               <img
                 className="theme-icon"
-                src={state.darkMode ? sunIconPath : moonIconPath}
+                src={darkMode ? sunIconPath : moonIconPath}
                 alt={
-                  state.darkMode
+                  darkMode
                     ? "Sun Icon - Dark Mode is enabled"
                     : "Moon Icon - Light Mode is enabled"
                 }
