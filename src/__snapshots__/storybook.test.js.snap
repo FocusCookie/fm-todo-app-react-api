@@ -250,6 +250,7 @@ exports[`Storyshots Components/FilterBar None Filter Set 1`] = `
 exports[`Storyshots Components/Login Default 1`] = `
 <div
   id="login"
+  onKeyDown={[Function]}
 >
   <div
     className="login-card"
@@ -302,12 +303,26 @@ exports[`Storyshots Components/Login Default 1`] = `
       Register
     </button>
   </div>
+  <footer>
+    <p>
+      Made with ❤️
+    </p>
+    <button
+      className="btn  btn--normal "
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      👀  Imprint
+    </button>
+  </footer>
 </div>
 `;
 
 exports[`Storyshots Components/Login Error Msg Provided 1`] = `
 <div
   id="login"
+  onKeyDown={[Function]}
 >
   <div
     className="login-card"
@@ -360,12 +375,26 @@ exports[`Storyshots Components/Login Error Msg Provided 1`] = `
       Register
     </button>
   </div>
+  <footer>
+    <p>
+      Made with ❤️
+    </p>
+    <button
+      className="btn  btn--normal "
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      👀  Imprint
+    </button>
+  </footer>
 </div>
 `;
 
 exports[`Storyshots Components/Login Loading 1`] = `
 <div
   id="login"
+  onKeyDown={[Function]}
 >
   <div
     className="login-card"
@@ -418,6 +447,19 @@ exports[`Storyshots Components/Login Loading 1`] = `
       Register
     </button>
   </div>
+  <footer>
+    <p>
+      Made with ❤️
+    </p>
+    <button
+      className="btn  btn--normal "
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      👀  Imprint
+    </button>
+  </footer>
 </div>
 `;
 
